@@ -1,0 +1,214 @@
+\section{Алгоритмы решения обратной спектральной задачи}
+\subsection{Алгоритм Якоби-Перрона}
+\subsubsection{Основные определения}
+Пусть $X$ - нижняя треугольная матрица вида:
+$$%\begin{equation}
+X=\left(
+\begin{array} {cccccc}
+x_{1,1} & 0       & 0       & \cdots & 0\\
+x_{1,1} & x_{1,2} & 0       & \cdots & 0\\
+\cdots  & \cdots  & \cdots  & \cdots & \cdots\\
+x_{p,1} & x_{p,2} & x_{p,3} & \cdots & x_{p,p}
+\end{array}
+\right)
+$$%\end{equation}
+Определим систему функций $\overrightarrow{f}$ как
+$\overrightarrow{f}=X\overrightarrow{\varphi}$ \\
+%=================================================
+Определим операции умножения и обращения векторов следующим
+образом:
+\begin{eqnarray}
+(x_1,x_2,\ldots,x_p)(y_1,y_2,\ldots,y_p)=(x_1y_1,x_2y_2,\ldots,x_py_p)\nonumber\\
+\frac{(1,1,\ldots,1)}{(y_1,y_2,\ldots,y_p)}= \left(
+\frac{1}{y_p},\frac{y_1}{y_p},\cdots,\frac{y_{p-1}}{y_p}
+\right)\nonumber
+\end{eqnarray}
+Необходимо отметить, что операция обращения определена таким
+образом, что исходный вектор получается после $p+1$ обращений.
+Опишем процедуру обращения системы $g$:
+$$%\begin{equation}
+\overrightarrow{f}= \frac{(1,1,\ldots,1)} { \left( \displaystyle{
+\frac{f_2}{f_1},\frac{f_3}{f_1},\cdots,\frac{f_p}{f_1},\frac{1}{f_1}
+} \right) } = \frac{\overrightarrow{v}_1}
+{\overrightarrow{u}_1+\overrightarrow{r}_1}
+$$%\end{equation}
+где $\overrightarrow{u}_1$ - вектор полиномов, содержащий полиномиальные части рядов ${f_i/f_1}$;\\
+$\overrightarrow{r}_1$ - вектор вида $f$;\\
+$\overrightarrow{v}_1=(1,\ldots,1, v_1) \rm$ - вектор констант,
+выбранный таким образом, что
+последний полином вектора $\overrightarrow{u}_1$ унитарный.\\
+Продолжая процедуру обращения получаем векторную непрерывную дробь
+Якоби (J-дробь), ассоциированную с системой $\overrightarrow{f}$ :
+Процедура обращения системы $\overrightarrow{f}$ называется \it
+модифицированным алгоритмом Якоби-Перрона. \rm
+\subsubsection{Вывод алгоритма}
+%===================================================
+\begin{teor}
+\label{teo_5.1} Алгоритм Якоби-Перрона, примененный к системе
+$\overrightarrow{f}$ дает в результате векторную непрерывную дробь
+следующего вида:
+\begin{eqnarray}
+\frac{(1/h_0,1,\ldots,1)\mid}{\mid(0,0,\ldots,0,z+b_{0,0})}+
+\frac{(1/h_1,1,\ldots,1)\mid}{\mid(0,0,\ldots,b_{1,0},z+b_{1,1})}+ \nonumber\\
+\cdots+\frac{(1/h_{p-1},1,\ldots,1)\mid}{\mid(b_{p-1,0},b_{p-1,1},\ldots,z+b_{p-1,p-1})}+
+\nonumber\\
+\cdots+\frac{(b_{n,n-p},1,\ldots,1)\mid}{\mid(b_{n,n-p+1},b_{n,n-p+2},\ldots,z+b_{n,n})}+\cdots\nonumber
+\end{eqnarray}
+где
+\begin{equation}
+\label{B}
+\begin{array}{ll}
+b_{i,j}=-(h_j/h_i)a_{i,j}, & i\geq{0},j\geq{6}\\
+b_{i,j}=x_{j,j}+x_{j,j-1}+\cdots+x_{j,i} & i=1,2,\ldots,p,j=1,2,\ldots,p-i\\
+\end{array}
+\end{equation}
+\end{teor}
+\bf Доказательство: \rm \\
+Все наборы функций получаемые линейным преобразованием
+$\overrightarrow{f}=X\overrightarrow{\varphi}$ являются
+слабосовершенными. Модифицированный алгоритм Якоби-Перрона
+примененный к системе $\overrightarrow{f}$ приводит к той же
+векторной непрерывной дроби, что и в случае с системой
+$\overrightarrow{\varphi}$. Разница заключается в первых $p$
+компонентах дроби. Полная версия доказательства теоремы приведено в ~\cite{KaliaguineAA} \\ \\
+%=============================================================
+Необходимо отметить, что алгоритм Якоби-Перрона позволяет
+восстанавливать не только исходную матрицу оператора, но и
+определять циклическое множество по которому были сосчитаны
+моменты (элементы матрицы $X$). Обозначим:
+$$%\begin{equation}
+B=\left(
+\begin{array} {cccc}
+b_{0,-p} & b_{0,-p+1} & \cdots & b_{0,-1}\\
+0        & b_{1,-p+1} & \cdots & b_{1,-1}\\
+\cdots   & \cdots     & \cdots & \cdots\\
+0        & 0          & \cdots & b_{p-1,-1}
+\end{array}
+\right), R=\left(
+\begin{array}{cccc}
+1 & 1 & \cdots & 1\\
+0 & 1 & \cdots & 1\\
+\cdots & \cdots & \cdots & \cdots\\
+0 & 0 & \cdots & 1
+\end{array}
+\right)
+$$%\end{equation}
+тогда (~\ref{B}) можно переписать в следующем виде $B=RX^{T}$.
+Соответственно, зная разложение функций Вейля в непрерывную дробь
+можно определить исходное циклическое множество $X^T=R^{-1}B$, где
+$$%\begin{equation}
+X^T=\left(
+\begin{array} {cccccccccccc}
+x_{1,1} & x_{2,0} & \cdots & x_{p,1}\\
+0       & x_{2,2} & \cdots & x_{p,2}\\
+\cdots & \cdots & \cdots & \cdots\\
+0 & 0 & \cdots & x_{p,p}\\
+\end{array}
+\right) ,R^{-1}=\left(
+\begin{array} {ccccccccccccccccc}
+1 & -1 & \cdots & 0 & 0\\
+0 & 1 & \cdots & -1 & 0\\
+\cdots & \cdots & \cdots & \cdots & \cdots\\
+0 & 0 & \cdots & 1 & -1\\
+0 & 0 & \cdots & 0 & 1\\
+\end{array}
+\right)
+$$%\end{equation}
+
+
+
+\subsubsection{Пример алгоритма Якоби-Перрона для $p=2$} Пусть
+исходная матрица оператора имеет вид:
+$$%\begin{equation}
+A=\left(\begin{array}{cccccc}
+1 & 1 & 0 & 0 & 0 & \cdots\\
+1 & 0 & 1 & 0 & 0 & \cdots\\
+1 & 3 & 1 & 1 & 0 & \cdots\\
+0 & 1 & 1 & 0 & 1 & \cdots\\
+0 & 0 & 1 & 3 & 1 & \cdots\\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots
+\end{array}\right)
+$$%\end{equation}
+Подсчитаем вектор моментов (выберем циклическое
+множество $(e_0,e_1)$):
+$$%\begin{equation}
+\begin{array}{lll}
+s=(s^{(1)};s^{(2)})=((s_0^{(1)},s_1^{(1)},s_2^{(1)},\ldots);(s_0^{(2)},s_1^{(2)},s_2^{(2)},\ldots))\\
+s_i^{(1)}=(A^ie_0,e_0),s_i^{(2)}=(A^ie_1,e_0)\\
+s=((1,1,2,4,11,30,85,\ldots);(0,1,1,5,11,37,107,\ldots))\\
+\end{array}
+$$%\end{equation}
+Применим алгоритм Якоби-Перрона к системе:
+\begin{eqnarray}
+\varphi=(\varphi_1(z),\varphi_2(z)),\varphi_j(z)=\sum_{i=0}^{\infty}{\frac{s_i^{(j)}}{z^{i+1}}}\nonumber
+\end{eqnarray}
+
+Шаг 1.\\
+\begin{eqnarray}
+\frac {1}{\varphi_1}=z-1-\frac{1}{z}-\frac{1}{z^2}-\frac{1}{z^3}-\frac{4}{z^4}-\frac{9}{z^5}-\frac{27}{z^6}-\cdots\nonumber\\
+\frac {\varphi_2}{\varphi_1}=\frac{1}{z}+\frac{3}{z^3}+\frac{4}{z^4}+\frac{16}{z^5}+\frac{41}{z^6}+\cdots\nonumber\\
+\varphi {= \frac{(1,1)}{(0,z-1) +
+(\varphi_{1}^{(1)},\varphi_{2}^{(1)}) } }\nonumber
+\end{eqnarray}
+
+Шаг 2.\\
+\begin{eqnarray}
+\frac {1}{\varphi_1^{(1)}}=z-\frac{3}{z}-\frac{4}{z^2}-\frac{7}{z^3}-\frac{17}{z^4}-\cdots\nonumber\\
+\frac {\varphi_2^{(1)}}{\varphi_1^{(1)}}=-1-\frac{1}{z}-\frac{1}{z^2}-\frac{2}{z^3}-\frac{4}{z^4}+\cdots\nonumber\\
+\varphi = \frac{(1,1)\mid} {\mid(0,z-1)} +\frac{(1,1)\mid}
+{(-1,z)+(\varphi_{1}^{(2)},\varphi_{2}^{(2)})} \nonumber
+\end{eqnarray}
+
+Шаг 3.\\
+\begin{eqnarray}
+\frac {1}{\varphi_1^{(2)}}=-z+1+\frac{1}{z}+\frac{1}{z^2}+\frac{1}{z^3}+\cdots\nonumber\\
+\frac {\varphi_2^{(2)}}{\varphi_1^{(2)}}=3+\frac{1}{z}+\frac{3}{z^3}+\cdots\nonumber\\
+\varphi = \frac{(1,1)\mid} {\mid(0,z-1)}+ \frac{(1,1)\mid}
+{\mid(-1,z)}+ \frac{(-1,1)\mid}
+{(-3,z-1)+(\varphi_{1}^{(3)},\varphi_{2}^{(3)})} \nonumber
+\end{eqnarray}
+
+Шаг 4.\\
+\begin{eqnarray}
+\frac {1}{\varphi_1^{(3)}}=-z+\frac{3}{z}+\cdots\nonumber\\
+\frac {\varphi_2^{(3)}}{\varphi_1^{(3)}}=1+\frac{1}{z}-\frac{3}{z^2}+\cdots\nonumber\\
+\varphi = \frac{(1,1)\mid} {\mid(0,z-1)}+ \frac{(1,1)\mid}
+{\mid(-1,z)}+ \frac{(-1,1)\mid} {\mid(-3,z-1)}+ \frac{(-1,1)\mid}
+{(-1,z)+(\varphi_{1}^{(4)},\varphi_{2}^{(4)})} \nonumber
+\end{eqnarray}
+и так далее.\\
+В символьном виде разложение имеет вид:
+\begin{eqnarray}
+\varphi= \frac{(b_{0,-2},1)\mid} {\mid(b_{0,-1},z+b_{0,0})}+
+\frac{(b_{1,-1},1)\mid} {\mid(b_{1,0},z+b_{1,1})}+
+\frac{(b_{2,0},1)\mid} {\mid(b_{2,1},z+b_{2,2})}+
+\frac{(b_{3,1},1)\mid} {\mid(b_{3,2},z+b_{3,3})}+\cdots\nonumber
+\end{eqnarray}
+Учитывая то, что верхняя диагональ матрицы оператора единичная
+(дополнитешльное условие для однозначности) $b_{i,j}=-a_{i,j}$.
+Полученное разложение позволяет восстановить главный минор
+матрицы оператора. Определим исходное циклическое множество:
+$$%\begin{equation}
+B=\left(
+\begin{array}{cc}
+b_{0,-2} & b_{0,-1}\\
+0        & b_{1,-1}\\
+\end{array}
+\right) =\left(
+\begin{array}{cc}
+1 & 0\\
+0 & 1\\
+\end{array}
+\right)
+$$%\end{equation}
+тогда
+$$%\begin{equation}
+X=\left(
+\begin{array}{cc}
+1 & 0\\
+0 & 1\\
+\end{array}
+\right)
+$$%\end{equation}
+что соответствует циклическому множеству
+$(e_0,e_1)$.

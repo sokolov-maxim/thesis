@@ -1,0 +1,74 @@
+\documentclass[12pt, a4paper]{report}
+\usepackage[russianb]{babel}
+\parindent 0.5 cm
+\textwidth 15.5 cm \textheight 24 cm \topmargin -1.5 cm
+\evensidemargin .5 cm \oddsidemargin .5 cm \baselineskip=14 pt plus 1 pt
+
+\newtheorem{teor}{Теорема} [chapter]
+\newtheorem{prope}{Свойство} [chapter]
+\newtheorem{coly}{Заключение} [chapter]
+\newtheorem{defi}{Определение} [chapter]
+\newtheorem{lema}{Лемма} [chapter]
+
+\begin{document}
+
+% $i,j,k,n$ - индексы \\
+% $z,x$ - переменные \\
+% $\mu$ - мера \\
+% $\Delta$ - носитель меры \\
+% $Q(z)$ - ортогональные многочлены II типа, знаменатели
+% аппроксимации Паде \\
+% $P(z)$ - ортогональные многочлены II типа второго рода, числители
+% аппроксимации Паде \\
+% $C(z)$ - ортогональные многочлены I типа \\
+% $D(z)$ - ортогональные многочлены I типа второго рода \\
+% $L$ - линейный функционал \\
+% $\alpha$ - коэффициенты разложения
+% $xQ_n=\sum\limits_{i=n-p}^{n+1}{\alpha_{n,i}Q_i}$
+% $f=(f_1,f_2,\ldots,f_p)$ - система функций (марковских например)\\
+% $s_{k}$ - моменты \\
+
+\begin{flushright}
+\today
+\tableofcontents
+\end{flushright}
+
+%\chapter {Векторные ортогональные многочлены  }
+\include{vector.orthogonal.polys}
+\include{hermite.pade.approx}
+%\section{Примеры совершенных систем}
+\include{angelesco.system}
+\include{at.systems.pineiro}
+%\section{Ленточные операторы: прямая и обратная спектральные задачи}
+\include{linear.operator}
+\include{biorthogonality}
+\include{hermite.pade.resolvent}
+%\section{Алгоритмы решения обратной спектральной задачи}
+\include{yakobi.perron.algo}
+\include{vector.qd.algo}
+\include{stieltjes.fraction}
+\include{progressive.qd.algo}
+\include{yurko.algo}
+\chapter{Вычислительные аспекты векторных ортогональных многочленов}
+В главе рассматриваются алгоритмы связанные с проблемой
+вычисления коэффициентов рекуррентного соотношения векторных
+ортогональных многочленов. Существует два принципиально различных
+подхода к решению этой проблемы. Первый, заключается в вычислении
+на базе модифицированных моментов. Этот метод в большинстве
+случаев является плохо численно обусловленным. Второй метод -
+вычисление коэффициентов рекуррентного соотношения
+непосредственно через вычисление выражений вида $L_j(Q_i,Q_k)$,
+которую в свою очередь вычисляются через квадратуры Гаусса
+\include{vector.clenshow}
+\include{vector.modified.chebushev}
+\include{gauss.quadrature}
+\include{stieltjes.proc}
+
+%%\section{Теоретические аспекты векторных ортогональных многочленов}
+%\include{condition.number}
+%\include{mass.points}
+
+
+
+\include{bibliography}
+\end{document}

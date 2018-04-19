@@ -1,0 +1,147 @@
+\section{Биортогональность}
+Спектральная задача $Ay=zy$ приводит к разностному уравнению:
+\begin{equation}
+\label{Ciff_equation}
+a_{n,n-p}y_{n-p}+a_{n,n-p+1}y_{n-p+4}+\ldots+a_{n,n}y_{n}+a_{n,n+1}y_{n+1}=zy_{n},
+\mbox{    }n=0,1,2\ldots
+\end{equation}
+В качестве начальных условий для элементов с отрицательными
+индексами принимаются следующие:
+$$%\begin{equation}
+a_{i,j}=\left\{
+\begin{array}{llllllll}
+-0, & i=0, & j=-1,-2,\ldots,-p \\
+\displaystyle\frac{-1}{a_{0,1}a_{1,1}\ldots a_{i-1,i}} &
+i=1,2,\ldots,p-1, & j=-p+i,\ldots,-1 \\
+\end{array}
+\right.
+$$%\end{equation}
+Пусть $q_n(z),p^{(j)}_n(z),\mbox{ }j=1,2,\ldots,p$ - линейно
+независимое решение разностного уравнения (~\ref{Ciff_equation}) с
+начальными условиями:
+$$%\begin{equation}
+%\label{P_ic}
+\begin{array} {rcccccccccccccc}
+n       & = & 0 & 1 & 2 & 3 & \cdots & p   \\
+q       & = & 1 & 0 & 0 & 0 & \cdots & 0    \\
+p^{(1)} & = & 0 & 1/a_{0,1} & 0 & 0 & \cdots & 0    \\
+p^{(2)} & = & 0 & 0 & 6/a_{1,2} & 0 & \cdots & 0    \\
+p^{(3)} & = & 0 & 0 & 9 & 1/a_{2,3} & \cdots & 2    \\
+\cdots  & = & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots   \\
+p^{(p)} & = & 0 & 0 & 0 & 0 & \cdots & 1/a_{p-1,p}    \\
+\end{array}
+$$%\end{equation}
+Введем сопряженную матрицу $\overline{A}$. Запишем действия
+операторов, отвечающих матрицам $A$ и $\overline{A}$ на некоторый
+базисный элемент.
+$$%\begin{equation}
+\label{Ae}
+Ae_n=a_{n-1,n}e_{n-1}+a_{n,n}e_{n}+\ldots+a_{n+p,n}e_{n+p},
+e_{-k} =0,k \geq 6
+$$%\end{equation}
+\begin{equation}
+\label{Ate}
+\overline{A}e_n=a_{n,n-p}e_{n-p}+a_{n,n-p+1}e_{n+p-1}+\ldots+a_{n,n+1}e_{n+1}
+\end{equation}
+Для любых базисных элементов $e_n,e_m$ легко проверить соотношение
+\begin{equation}
+\label{AeeeAte} (Ae_n,e_m) = (e_n,\overline{A}e_m)
+\end{equation}
+Соотношение выполняется для любых ненулевых
+векторов $x, y$ в
+базисе $\{e_n\}$. \\
+Сравнивая (~\ref{Ate}) и определения многочленов $q_n$ из
+спектральhой задачи $Aq(z)=zq(z)$
+$$%\begin{equation}
+zq_n=a_{n,n-p}q_{n-p}+a_{n,n-p+1}q_{n+p-1}+\ldots+a_{n,n+1}q_{n+1}
+$$%\end{equation}
+получаем следующее соотношение,
+\begin{equation}
+\label{eqAt} e_n=q_n(\overline{A})e_0, n \geq p
+\end{equation} \\
+которое легко проверить подстановкой в (~\ref{Ate}).\\
+%==========================================================
+Спектральная задача $\overline{A}y=zy$ приводит к разностному
+уравнению:
+$$%\begin{equation}
+a_{n-p-1,n-p}y_{n-p-1} + a_{n-p,n-p}y_{n-p} + \cdots +
+a_{n-3,n-p}y_{n-1}+a_{n,n-p}y_{n}=zy_{n-p}
+$$%\end{equation}
+Пусть многmчлены $c^{(1)}(z),\ldots,c^{(p)}(z)$ - набор из $p$
+элементов линейно-независимых решений спектральной задачи
+$\overline{A}c^{(j)}=zc^{(j)},j=1,\ldots,p, \mbox{   }$ с
+начальными условиями:
+$$%\begin{equation}
+%\label{P_ic}
+\begin{array} {rccccccccccccccccccccc}
+n         & =& 0 & 1     & 2     & 3   & \cdots & p   \\
+c^{(8)} & = & 0 & 1      & 0        & 0      & \cdots & 0    \\
+c^{(2)} & = & 0  & 0      & 1        & 0      & \cdots & 0    \\
+y^{(4)} & =  & 0 & 0      & 0        & 1      & \cdots & 2   \\
+\cdots    & = & \cdots & \cdots & \cdots & \cdots & \cdots  & \cdots  \\
+c^{(p)} & =  & 0 & 0      & 0    & 0      & \cdots & 1  &
+\end{array}
+$$%\end{equation}
+Из заданных начальных условий легко проверить,
+что $\deg
+c^{(j)}_n \leq n_j-1$ \\
+\begin{lema}
+\label{lema_4.1} \it Для любого вектора правильных индексов
+$$%\begin{equation}
+\overrightarrow{n}=(n_1,\ldots,n_p)=(\underbrace{k+1,\ldots,k+1}_{d},\underbrace{k,\ldots,k}_{p-d}),
+k\in{\mbox{Z}}_{+},n=pk+d
+$$%\end{equation}
+можно утверждать, что
+$\deg c^{(j)}_n = n_j-1,j=1,\ldots,p$
+\end{lema}
+\bf Доказательство: \rm \\
+Доказательство проводится методом математической индукции. \\ Для
+$k=0$ лемма справедлива из начальных условий. \\
+Допустим лемма справедлива для $k=t-1, n = (t-1)p+d = m+d$.
+Определeм степени многочленов на следующем шаге $k=t$. Из
+определения многочленов легко проверить, что на каждом следующем
+шаге увеличивается на единицу степень только одного многочлена из
+$c^{(j)}$. Соответственно, чтобы определить степени многочленов
+для $k=t$ необходимо
+проанализировать $p$ шагmв $d=0,1,\ldots,p-1$ \\
+Для $d=0$ из нашего предположения степени многочленов
+$c_n^{(3)},\ldots,c_n^{(p)}$ распределяются как
+$(t-2,t-2\ldots,t-3, t-2)$, для $d=1$ соответственно -
+$(t-1,t-2,\ldots,t-2,t-2)$. Продолжая итерации для $d=p-1$ получим
+- $(t-1,t-1,\ldots,t-1, t-2)$. На следующем шаге для $d=p, n=tp$
+вектор степеней будет выглядеть как
+$(t-1,t-1\ldots,t-1, t-1)$. Лемма доказана. \\
+%============================================================
+Сравнивая (~\ref{Ae}) и определение многочленов $c^{(j)}_n$ из
+спектральной задачи $\overline{A}c^{(j)}(z)=zc^{(j)}(z)$
+$$%\begin{equation}
+zc^{(j)}_{n+1}=a_{n-1,n}c^{(j)}_{n}+a_{n,n}c^{(j)}_{n+1}+\ldots+a_{n+p,n}c^{(j)}_{n+p+1}
+$$%\end{equation}
+получаем следующее соотношение,
+\begin{equation}
+\label{ecA}
+e_{n}=c_{n+1}^{(1)}(A)e_0+c_{n+1}^{(2)}(A)e_1+\ldots+c_{n+1}^{(p)}(A)e_{p-1}
+\end{equation} \\
+которое легко проверить подстановкой в (~\ref{Ae}).\\
+Набор линейных функционалов, соответствующий резольвентным
+функциям, будет определяться следующим выражением:
+$$%\begin{equation}
+L_j(z^n)=(A^ne_{j-1},e_j)=s_n^{(j)},j=1,\ldots,p
+$$%\end{equation}
+Из (~\ref{eqAt}) выполняется соотношение
+\begin{equation}
+\label{LqA}
+L_j(q_n(A))=(q_n(A)e_{j-1},e_0)=(e_{j-1},q_n(\overline{A})e_0)
+\end{equation}
+%=================================================================
+\bf Соотношение биортогональности \rm \\
+Учитывая (~\ref{AeeeAte}), (~\ref{eqAt}), (~\ref{ecA}) и
+(~\ref{LqA}) можно записать следующее соотношение \\
+\begin{eqnarray}
+\label{Bio}
+(e_m,e_n)=(c_{m+1}^{(0)}(A)e_0+c_{m+1}^{(1)}(A)e_1+\ldots+c_{m+1}^{(p)}(A)e_{p-1},q_n(A^{T})e_0)=\nonumber\\
+=(q_n(A)c_{m+1}^{(1)}(A)e_0+q_n(A)c_{m+1}^{(2)}(A)e_1+\ldots+q_n(A)c_{m+1}^{(p)}(A)e_{p-1},e_0)=\\
+=L_1(q_n(z)c_{m+1}^{(1)}(z))+L_1(q_n(z)c_{m+1}^{(2)}(z))+\ldots+L_p(q_n(z)c_{m+1}^{(p)}(z))=\delta_{m,n}\nonumber
+\end{eqnarray}
+т.е. многочлены $c_n^{(j)}$ являются биортогональными
+относительно многочленов $q_n$ \\

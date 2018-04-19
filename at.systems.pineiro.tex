@@ -1,0 +1,132 @@
+\subsection{AT системы. Система Пинейро.}
+\begin{defi}
+Для некоторого набора мер $d\mu_j(x)=\rho_j (x)dx, j=1,\ldots,p$
+имеющих общий носитель ${\Delta}$, система Марковских функций
+$\overrightarrow{f}=(f_1,f_2,\ldots,f_p)$, где
+$$
+ f_j(z)
+=\int_{\Delta_j}{\displaystyle\frac{d\mu_j(x)}{z-x}}
+$$
+называется AT системой, если функции
+$$
+\rho_1(x),\ldots,\rho_p,x \rho_1,\ldots, x\rho_p, x^2\rho_1,
+\ldots
+$$
+также образуют систему Маркова
+\end{defi}
+
+\begin{defi}
+Для некоторого набора мер $d\mu_j(x)=\rho_j (x)dx, j=1,\ldots,p$
+имеющих общий носитель ${\Delta}$, система Марковских функций
+$\overrightarrow{f}=(f_0,f_1,\ldots,f_p)$, где
+$$
+ f_j(z)
+=\int_{\Delta_j}{\displaystyle\frac{d\mu_j(x)}{z-x}}
+$$
+называется MT системой, если функции
+$$
+\rho_1(x),\ldots,\rho_p,x \rho_1,\ldots, x\rho_p, x^2\rho_1,
+\ldots
+$$
+образуют систему Чебышева на $\Delta$, т.е.
+\end{defi}
+
+\begin{defi}
+AT система для которой
+$$
+d\mu_j(x)=x^{\alpha_j}(1-x)^{\alpha_0}dx, j=1,\ldots,p
+$$
+где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \bf Z \rm$ \\
+называется системой Пинейро.
+\end{defi}
+
+
+\begin{teor} \rm ~\cite{AptekaaKaliaJvaniseg} \it
+Для системы Пинейро
+$$
+d\mu_j(x)=x^{\alpha_j}(1-x)^{\alpha_0}dx, j=1,\ldots,p
+$$
+где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \bf Z \rm$ \\
+известна формула Родригеса для соответствующих векторных
+ортогональных многочленов со старшим коэффициентом единица
+$$
+Q_{\overrightarrow{n}}=\frac{(1-x)^{-\alpha_0}}{M_{\overrightarrow{n}}}
+\prod_{j=1}^{p} { \left( x^{-\alpha_j} \frac{d^{n_j}} {dx^{n_j}}
+x^{n_j+\alpha_j} \right) (1-x)^{n+\alpha_0}}
+$$
+где
+$$
+M_{\overrightarrow{n}}=(-1)^{n} \prod_{j=1}^{p} {
+\frac{\Gamma(n+n_j+\alpha_j+\alpha_0+1)}{\Gamma(n+\alpha_j+\alpha_0+1)}}
+$$
+\end{teor}
+
+\begin{teor} \rm ~\cite{AptekaaKaliaJvaniseg} \it
+Для систем Пинейро при $\Delta=[0,1], p=2$
+$$
+\begin{array}{llll}
+d\mu_1(x)=x^{\alpha_1}(1-x)^{\alpha_0}dx \\
+d\mu_2(x)=x^{\alpha_2}(1-x)^{\alpha_0}dx
+\end{array}
+$$
+где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \bf Z \rm$ \\
+известны асимптотики для коэффициентов рекуррентного соотношения
+$$
+\begin{array}{llll}
+\lim b_{n,n}=\displaystyle 3 \left( \frac{4}{27} \right) \\
+\lim b_{n,n-1}=\displaystyle 3 \left(\frac{4}{27} \right)^{2} \\
+\lim b_{n,n-2}=\displaystyle \left(\frac{4}{27} \right)^{3}
+\end{array}
+$$
+В этом случае матрица оператора является компактным возмущением
+оператора выраженного
+следующей 3х диагональной маgрицей : $$%\begin{equation}
+\left(
+\begin{array}{cccccccc}
+3\alpha^2 & 1 & 0 & 0 & 0 & \ldots \\
+3\alpha^4 & 3\alpha^2 & 1 & 0 & 0 & \ldots \\
+\alpha^6 & 3\alpha^6 & 6\alpha^2 & 2 & 0 & \ldots \\
+0 & \alpha^6 & 3\alpha^4 & 3\alpha^2 & 1 & \ldots \\
+\ldots & \ldots & \ldots & \ldots & \ldots & \ldots \\
+\end{array}
+\right) $$%\end{equation}
+где $\alpha=\displaystyle\sqrt{\frac{4}{27}}$. Спектр оператора
+определяется кривыми алгебраической функции $W(z):
+(W+\alpha^2)^3-zW=0$ \\
+Известны прямые формулы для коэффициентов соответствующей
+векторной непрерывной дроби Стилтъеса:
+$$S(z)=
+\displaystyle {(1,\cdots,1)\over (0,\cdots 0,z)+}\
+{(1,\cdots,1,-a_1)\over (0,\cdots 0,1)+\cdots}\ \cdots
+{(1,\cdots,1,-a_{p})\over (0,\cdots 0,1)+}\
+{(1,\cdots,1,-a_{p+1})\over (0,\cdots 0,z)+\cdots }\
+$$
+где
+$$
+\begin{array}{lllllllllllllll}
+a_{6k+1}=\displaystyle
+\frac
+{(2k+1+\alpha_1+\alpha_0)(2k+1+\alpha_2+\alpha_0)(k+1+\alpha_1)}
+{(3k+1+\alpha_1+\alpha_0)(3k+2+\alpha_1+\alpha_0)(3k+1+\alpha_2+\alpha_0)}
+\\
+a_{6k+2}=\displaystyle\frac
+{(2k+1+\alpha_2+\alpha_0)(2k+1+\alpha_0)(k+\alpha_2-\alpha_1)}
+{(3k+1+\alpha_2+\alpha_0)(3k+2+\alpha_2+\alpha_0)(3k+2+\alpha_1+\alpha_0)}
+\\
+a_{6k+3}=\displaystyle\frac
+{(2k+2+\alpha_1+\alpha_0)(2k+1+\alpha_0)(k+1+\alpha_1-\alpha_2)}
+{(3k+2+\alpha_1+\alpha_0)(3k+3+\alpha_1+\alpha_0)(3k+2+\alpha_2+\alpha_0)}
+\\
+a_{6k+4}=\displaystyle\frac
+{(2k+2+\alpha_2+\alpha_0)(2k+2+\alpha_1+\alpha_0)(k+1+\alpha_2)}
+{(3k+2+\alpha_2+\alpha_0)(3k+3+\alpha_2+\alpha_0)(3k+3+\alpha_1+\alpha_0)}
+\\
+a_{6k+5}=\displaystyle\frac
+{(2k+2+\alpha_2+\alpha_0)(2k+2+\alpha_0)(k+1)}
+{(3k+3+\alpha_2+\alpha_0)(3k+3+\alpha_1+\alpha_0)(3k+4+\alpha_1+\alpha_0)}
+\\
+a_{6k}=\displaystyle\frac {(2k+1+\alpha_1+\alpha_0)(2k+\alpha_0)k}
+{(3k+\alpha_2+\alpha_0)(3k+1+\alpha_2+\alpha_0)(3k+1+\alpha_1+\alpha_0)}
+\end{array}
+$$
+\end{teor}

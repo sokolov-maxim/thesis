@@ -1,0 +1,210 @@
+\subsection{Алгоритм Юрко} Пусть задан следующий оператор:
+$$%\begin{equation}
+A = \left(\begin{array}{ccccccc}
+a_{0,0}&a_{0,1}&0&0&0&0&\cdots\\
+a_{1,0}&a_{1,1}&a_{1,2}&0&0&0&\cdots\\
+\cdots&\cdots&\cdots&\cdots&\cdots&\cdots&\cdots\\
+a_{p,0}&a_{p,1}&a_{p,2}&\cdots&a_{p,p+1}&0&\cdots\\
+0&a_{p+1,1}&a_{p+1,2}&\cdots&a_{p+1,p+1}&a_{p+1,p+2}&\cdots\\
+\cdots&\cdots&\cdots&\cdots&\cdots&\cdots&\cdots
+\end{array}\right)
+$$%\end{equation}
+Пусть $H_n, n=pk+d$ - соответствующая Ганкелева
+матрица моментов размерности $n \times n$
+$$%\begin{equation}
+H_n = \left(
+\begin{array}{ccccccccccccc}
+s_0^{(1)} & s_1^{(1)} & s_2^{(1)}  & \cdots &  s_{n-1}^{(1)}\\
+\cdots    & \cdots    & \cdots      & \cdots    & \cdots    \\
+s_0^{(p)} & s_1^{(p)} & s_2^{(p)}  & \cdots &  s_{n-1}^{(p)}\\
+s_1^{(1)} & s_2^{(1)} & s_3^{(1)} & \cdots &  s_{n}^{(1)}\\
+\cdots    & \cdots    & \cdots      & \cdots    & \cdots   \\
+s_k^{(d)} & s_{k+1}^{(d)} & s_{k+2}^{(d)}  & \cdots  &
+s_{k+n-1}^{(d)}
+\end{array}
+\right)
+$$%\end{equation}
+Пусть $L=(L_1,\ldots,L_p)$ -
+соответствующие линейные функционалы
+$$L_j(z^i)=s_i^{(j)}$$
+Пусть $\{Q_n(z)\}_{n=0,1,\ldots}$ - соответствующие векторные
+ортогональные многочлены, являющиеся решением спектральной задачи
+$AQ=zQ$. Индекс $n=pk+d$ представим в виде вектора
+$$\overrightarrow{n}=(n_1,n_2,\ldots,n_p)=(\underbrace{k+1,\ldots,k+1}_{d},\underbrace{k,\ldots,k}_{p-d})$$
+Многочлены $Q_n$ определены с точностью до константы.
+$$L_d(Q_nz^{n_d})=1$$
+Соотношения ортогональности и соотношение нормировки образуют
+систему линейных $n+1$ уравнений с $n+1$ неизвестными -
+степенными коэффициентами многочленов $Q_n$
+$$%\begin{equation}
+\begin{array}{lllllllllllllllll}
+L_1(Q_n) = 0 \\
+\cdots \\
+L_p(Q_n) = 0 \\
+L_1(Q_nz) = 0 \\
+\cdots  \\
+L_d(Q_nz^{n_d})=1
+\end{array}
+\left(
+\begin{array}{ccccccccc}
+\beta_{n,0} \\
+\cdots \\
+\beta_{n,p-1} \\
+\beta_{n,p} \\
+\cdots \\
+\beta_{n,n}
+\end{array}
+\right) H_{n+1} = \left(
+\begin{array} {cccccccccccccccc}
+0 \\
+\cdots \\
+0 \\
+0 \\
+\cdots \\
+1
+\end{array}
+\right)
+$$%\end{equation}
+Коэффициенты ортогональных полиномов можно определить напрямую
+через отношения определителей блок-Ганкелевой матрицы моментов
+(метод Крамера):
+\begin{equation}
+\label{beta_compute} \beta_{i,k}=(-1)^{k-i}\frac{\det
+H_{k+1,i}}{\det H_{k+1}}, \beta_{k,k}=\frac{\det H_{k}}{\det
+H_{k+1}}
+\end{equation}
+где $H_{k+1,i}$ - минор, образованный из матрицы $H_{k+1}$
+удалением нижней строчки и $i$-го столбца. Запишем рекуррентные
+соотношения для векторных ортогональных многочленов.
+\begin{equation}
+\label{a_Q}
+\begin{array}{rrrrr}
+a_{0,0}Q_0 + a_{1,0}Q_1 = z Q_0\\
+a_{1,0}Q_0 + a_{1,1}Q_1 + a_{1,2}Q_2 = z Q_1\\
+\cdots \\
+a_{p,0}Q_0 + a_{p,1}Q_1 + \ldots + a_{p,p+1}Q_{p+1} = z Q_p\\
+\cdots\\
+\end{array}
+\end{equation}
+Сравнивая выражения при одинаковых степенях, выражаем элементы
+матрицы оператора $a_{i,j}$ через степенные коэффициенты
+векторных ортогональных многочленов $\beta_{i,k}$:
+$$%\begin{equation}
+\begin{array} {rrrrrrrrrrr}
+a_{0,0}\beta_{0,0} + a_{1,1}\beta_{0,1} = 0 \\
+a_{1,1}\beta_{1,1} = \beta_{0,0} \\ \\
+
+a_{1,0}\beta_{0,0} + a_{1,1}\beta_{0,1} + a_{1,2}\beta_{0,2} = 0 \\
+a_{1,1}\beta_{1,1} + a_{1,2}\beta_{1,2} = \beta_{0,1} \\
+a_{1,2}\beta_{2,2} = \beta_{1,1} \\ \\
+
+a_{2,0}\beta_{0,0} + a_{2,1}\beta_{0,1} + a_{2,2}\beta_{0,2} + a_{2,3}\beta_{0,3} = 0 \\
+a_{2,1}\beta_{1,1} + a_{2,2}\beta_{1,2} + a_{2,3}\beta_{1,3} = \beta_{0,2} \\
+a_{2,2}\beta_{2,2} + a_{2,3}\beta_{2,3} = \beta_{1,2} \\
+a_{2,3}\beta_{3,3} = \beta_{2,2} \\
+\cdots
+\end{array}
+$$%\end{equation}
+Определим соотношения для подсчета коэффициентов
+исходной матрицы оператора
+\begin{equation}
+\label{a_compute}
+\begin{array}{cccccccccccc}
+a_{k,k+1} = \displaystyle\frac{\beta_{k,k}}{\beta_{k+1,k+1}} \\
+a_{k,k}   = \displaystyle\frac{\beta_{k-1,k}-a_{k,k+1}\beta_{k,k+1}}{\beta_{k,k}} \\
+a_{k,k-1} = \displaystyle\frac{\beta_{k-2,k}-a_{k,k+1}\beta_{k-1,k+1}-a_{k,k}\beta_{k-1,k}}{\beta_{k,k}} \\
+\cdots \\
+a_{k,k-j} = \displaystyle\frac{\beta_{k-j-1,k}-\sum\limits_{i=0}^{j}{a_{k,k+i}\beta_{k-j,k+i}}}{\beta_{k,k}},j=1,\ldots,p \\
+\end{array}
+\end{equation}
+Для однозначности нижняя диагональ оператора принимается за
+единичную ($a_{p,0}=a_{p+1,1}=\ldots=a_{p+k,k}=\ldots=1$). \\
+Алгоритм\\
+1. Вычисляем коэффициенты векторных ортогональных многочленов $\beta_{i,j}$ (~\ref{beta_compute}) \\
+2. Вычисляем коэффициенты матрицы оператора $a_{i,j}$ (~\ref{a_compute}) \\
+
+\subsubsection{Пример алгоритма Юрко}
+Пусть задана следующая матрица оператора
+$$%\begin{equation}
+A=
+=\left(
+\begin{array} {ccccccc}
+1 & 2 & 0 & 0 & 0 & 0 & \cdots \\
+1 & 0 & 1 & 0 & 0 & 0 & \cdots \\
+1 & 3 & 1 & 2 & 0 & 0 & \cdots \\
+0 & 1 & 1 & 0 & 1 & 0 & \cdots \\
+0 & 0 & 1 & 3 & 1 & 2 & \cdots \\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots
+\end{array}
+\right)
+$$%\end{equation}
+Выпишем функции Вейля
+$$%\begin{equation}
+f_1(z)=\sum^{\infty}_{k=0}{\frac{(A^ke_0,e_0)}{z^{k+1}}}=\sum^{\infty}_{k=0}
+{\frac{s^{(1)}_k}{z^{k+1}}}=
+\frac{1}{z}+\frac{1}{z^2}+\frac{3}{z^3}+\frac{7}{z^4}+\frac{23}{z^5}+\frac{73}{z^6}+\cdots
+$$%\end{equation}
+$$%\begin{equation}
+\begin{array}{lllllllll}
+f_2(z)=\displaystyle\sum^{\infty}_{k=0}{\displaystyle\frac{(A^k(e_0+e_1),e_0)}{z^{k+1}}}=\displaystyle\sum^{\infty}_{k=0}{\displaystyle\frac{s^{(2)}_k}{z^{k+1}}}= \\ \\
+\displaystyle\frac{1}{z}+\frac{1}{z^2}+\frac{3}{z^3}+\frac{7}{z^4}+\frac{23}{z^5}+\frac{73}{z^6}+\cdots+
+\frac{0}{z}+\frac{2}{z^2}+\frac{2}{z^3}+\frac{12}{z^4}+\frac{30}{z^5}+\frac{114}{z^6}+\cdots= \\ \\
+\displaystyle\frac{1}{z}+\frac{3}{z^2}+\frac{5}{z^3}+\frac{19}{z^4}+\frac{53}{z^5}+\frac{187}{z^6}+\cdots
+\end{array}
+$$%\end{equation}
+Запишем соответствующую матрицу моментов:
+$$%\begin{equation}
+\left(
+\begin{array} {cccccccccc}
+1 & 1 & 3 & 7 &  \cdots \\
+1 & 3 & 5 & 19     & \cdots \\
+1 & 3 & 7 & 23     & \cdots \\
+3 & 5 & 19 & 53   & \cdots \\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots
+\end{array}
+\right)
+$$%\end{equation}
+
+Вычисляем степенные коэффициенты
+$$\beta_{0,0}=1$$
+$$
+\beta_{0,1}=\displaystyle\frac{-\left|1\right|}{ \left|
+\begin{array}{cc}
+1 & 1\\
+1 & 3
+\end{array}
+\right| }=-\frac{1}{2};\mbox{      }
+\beta_{1,1}=\displaystyle\frac{\left|1\right|}{ \left|
+\begin{array}{cc}
+1 & 1\\
+1 & 3
+\end{array}
+\right| }=\frac{1}{2}
+$$
+
+$$
+\beta_{0,2}=\displaystyle \frac {\left|\begin{array}{cc}1 & 3\\ 3
+& 5
+\end{array}\right|} {\left|\begin{array}{ccc}1 & 1 & 3\\ 1 & 3 &
+5\\ 1 & 3 & 7  \end{array}\right|}=-1;\mbox{   }
+\beta_{1,2}=\displaystyle \frac {-\left|\begin{array}{cc}1 & 3\\ 1
+& 5
+\end{array}\right|} {\left|\begin{array}{ccc}1 & 1 & 3\\ 1 & 3 &
+5\\ 1 & 3 & 7  \end{array}\right|}=-\frac{1}{2}; \mbox{      }
+\beta_{2,2}=\displaystyle \frac {\left|\begin{array}{cc}1 & 1\\ 1
+& 3
+\end{array}\right|} {\left|\begin{array}{ccc}1 & 1 & 3\\ 1 & 3 &
+5\\ 1 & 3 & 7  \end{array}\right|}=\frac{1}{2}
+$$
+И наконец вычисляем элементы исходной матрицы, учитывая что
+нижняя диагональ принимается равной единицам
+$$
+\begin{array} {lllll}
+a_{0,1}=\displaystyle\frac{\beta_{0,0}}{\beta_{1,1}}=2 &
+a_{0,0}=\displaystyle\frac{-a_{0,1}\beta_{0,1}}{\beta_{0,0}}=1 \\
+a_{1,2}=\displaystyle\frac{\beta_{1,1}}{\beta_{2,2}}=1 &
+a_{1,1}=\displaystyle\frac{\beta_{0,1}-a_{1,2}\beta_{1,2}}{\beta_{1,1}}=0 \\
+a_{1,0}=\displaystyle\frac{-a_{1,2}\beta_{0,2}-a_{1,1}\beta_{0,1}}{\beta_{0,0}}=1 \\
+\cdots
+\end{array}
+$$

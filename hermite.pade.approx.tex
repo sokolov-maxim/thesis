@@ -1,0 +1,303 @@
+\section{Аппроксимации Эрмита-Паде набора марковских функций}
+%\subsection{Аппроксимации Эрмита-Паде}
+
+Пусть $\overrightarrow{f}=(f_1,f_2,\ldots,f_p)$ - система
+марковских функций:
+\begin{equation}
+\label{Markov_system} f_j(z)
+=\int_{\Delta_j}{\displaystyle\frac{d\mu_j(x))}{z-x}}
+=\sum\limits_{k=0}^{\infty} \frac { s_{k}^{(j)} } {z^{k+1}}
+=\frac { s_{0}^{(j)} } {z} + \frac { s_{1}^{(j)} } {z^{2}} +\frac
+{ s_{2}^{(j)} } {z^{3}}+\cdots
+\end{equation}
+Пусть
+\begin{equation}
+\label{H} H_n=\left(
+\begin{array}{ccccc}
+s_0           & s_{1}         & \cdots & s_{n-1}        \\
+s_{1}         & s_{2}         & \cdots & s_{n}          \\
+\cdots        & \cdots        & \cdots & \cdots         \\
+s_{k-1}       & s_{k}         & \cdots & s_{k+n-2}      \\
+s_{k}^{(d)}   & s_{k+1}^{(d)} & \cdots & s_{k+n-1}^{(d)}
+\end{array}
+\right)
+\end{equation}
+определитель Ганкеля размерности $n \times n$, построенный по
+системе функций $f$, где $n=pk+d, \mbox{   }
+s_j=(s_j^{(1)},s_j^{(2)},\ldots,s_j^{(p)})^T, \mbox{   }
+s_i^{d}=(s_i^{(1)},s_i^{(2)},\ldots,s_i^{(d)})^{\mbox{T}}$ \\
+%=================================================================
+%     Задачач А  определение
+%==================================================================
+\bf Задача A \rm \\ \it Для некоторого фиксированного вектора
+индексов $\overrightarrow{n}=(n_1,n_2,\ldots,n_p),n_j\in{ \bf N
+\rm }$ требуется найти многочлен $Q_n\not=0,\deg
+(Q_n)\leq{|\overrightarrow{n}|}$ такой, что для некоторых
+многочленов $P_n^{(1)},P_n^{(2)},\ldots,P_n^{(p)}$ выполнялось
+соотношение: \rm
+\begin{equation}
+\label{Vector_Pade} Q_n(z)f_j(z)-P_n^{(j)}= \frac {s_j^{'}}
+{z^{n_{j+1}}} +\ldots,j=1,2,\ldots,p
+\end{equation}
+Соотношение эквивалентно системе $n$ линейных однородных уравнений
+c $n+1$ неизвестными:
+\begin{eqnarray}
+\label{QH0}
+Q_n(z)=\beta_nz^n+\beta_{n-1}z^{n-1}+\ldots+\beta_1z+\beta_0,
+\mbox{     } n=pk+d \nonumber
+\\ \left(
+\begin{array}{cccccccc}
+\beta_0 \\ \beta_1 \\ \ldots \\  \beta_{n-1}
+\\ \beta_n
+\end{array}
+\right) \left(
+\begin{array}{ccccccccccc}
+ &    &         & s_n     \\
+ &    &         & s_{n+1} \\
+ &    & H_n     & \cdots \\
+ &    &         & s_{k+n-1} \\
+ &    &         & s_{k+n}^{d}
+\end{array}
+\right)= \left(
+\begin{array}{cccccccc}
+0 \\ 0 \\ \ldots \\ 0 \\ 0
+\end{array}
+\right)
+\end{eqnarray}
+
+Такая система всегда имеет ненулевое решение, при
+этом рациональная функция:\\
+\begin{equation}
+\label{HermitePade} \overrightarrow{\pi}_{\overrightarrow{n}}=
+\left( \frac {P^{(1)}} {Q}, \frac {P^{(2)}} {Q}, \cdots, \frac
+{P^{(p)}} {Q} \right)
+\end{equation}
+называется \it $n$-ой совместной аппроксимацией Эрмита-Паде \rm
+системы $\overrightarrow{f}$ с разложением в бесконечности. \\ В
+общем случае вектор $\overrightarrow{\pi}$ определен не
+единственным образом, хотя существует довольно большой класс
+марковских функций для которых аппроксимация Эрмита-Паде
+единственна. Достаточным условием единственности является \it
+нормальность индекса \rm $n$. Индекс $n$ называется нормальным
+относительно задачи A, если для любого решения $\deg Q=|\overrightarrow{n}|$. \\
+%===============================================================
+\begin{coly} Из (~\ref{QH0}) легко проверить, что индекс $n$
+нормален относительно задачи А $\Leftrightarrow H_n \not= 0, H_0
+= 1$ \end{coly}
+%===============================================================
+Существуют так называемые \it совершенные \rm и \it
+слабосовершенные \rm системы функций вида (~\ref{Markov_system}).
+Для совершенной системы степень знаменателя аппроксимации $Q_n$ в
+точности равна $|\overrightarrow{n}|$ для любого
+$\overrightarrow{n}$. Cлабосовершенная система характеризуется
+более слабым условием нормальности, которое распространяется
+только на правильные индексы. \it Правильные индексы \rm
+удовлетворяют следующему условию:
+$$
+\overrightarrow{n}=(\underbrace{k+1,\ldots,k+1}_{d},\underbrace{k,\ldots,k}_{p-d}),
+k\in{\mbox{Z}}_{+},n=pk+d
+$$
+%=======================================================================
+Соотношение (~\ref{QH0}) (в силу позитивности последовательностей
+${s^{(j)}}, j=1,\ldots,p$) можно переписать в следующем виде:
+\begin{equation}
+\label{QOrthogonality} L_j(Q_n(z)z^i) = 0, i =0,1,\cdots, n_j-1,
+j=1,2,\cdots,p
+\end{equation}
+т.е., выполняется условие ортогональности для знаменателей
+совместной аппроксимации Паде, которые называют \it ортогональными
+многочленами II типа \rm \\ Числители выражаются через
+знаменатель:
+$$
+P^{(j)}(z)=L_{j,x} \left( \displaystyle \frac {Q(z)-Q(x)}{z-x}
+\right)
+$$
+и называются \it многочленами второго рода \rm для многочленов $Q_n$. \\
+Рекуррентное соотношение (~\ref{QRecurrrence}) связывает и
+знаменатели, и числители аппроксимации Эрмита-Паде $P^{(j)}_n$
+для каждого фиксированного $j$. Строго говоря, соотношение
+(~\ref{QRecurrrence}) справедливо только для $n\geq{p}$, но его
+можно расширить для случая $n\geq{0}$ выбрав соответствующие
+начальные условия. Все многочлены с отрицательными индексамит
+равны нулю, для первых $p+1$ индексов задаются следующие условия:
+$$
+%\begin{equation}
+%\label{P_ic}
+\begin{array} {rcccccccccccccc}
+n       & = & 0 & 1 & 2 & 3 & \cdots & p   \\
+Q       & = & 1 & 0 & 0 & 0 & \cdots & 0    \\
+P^{(1)} & = & 0 & 1 & 0 & 0 & \cdots & 0    \\
+P^{(2)} & = & 0 & 0 & 1 & 0 & \cdots & 0    \\
+P^{(3)} & = & 0 & 0 & 0 & 1 & \cdots & 0    \\
+\cdots  & = & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots   \\
+P^{(p)} & = & 0 & 0 & 0 & 0 & \cdots & 1    \\
+\end{array}
+%\end{equation}
+$$
+В этом случае с учетом нормальности индексов $n$ можно утверждать, что $\deg Q_n=n, \deg P_n^{j)} = n-j$ \\
+%================================================================================
+%   Задача В
+%================================================================================
+\bf Задача B (двойственная)\it \\ Для некоторого фиксированного
+вектора индексов
+$\overrightarrow{n}=(n_1,n_2,\ldots,n_p)$ требуется найти \\
+$C^{(1)}_n,C^{(2)}_n,\ldots,C^{(p)}_n$, не равные нулю степени
+которых не превосходят соответственно $n_4-1,\ldots, n_p-1$, такие
+что для некоторого многочлена $D_n$ выполнялось соотношение: \rm
+$$%\begin{equation}
+C^{(1)}_nf_1+C^{(2)}_nf_2+\ldots+C^{(p)}_nf_p-D_n=\frac{c_j}{z^{|n|}}+\cdots
+$$%\end{equation} Соотношение эквивалентно системе $n-1$ линейных
+однородных уравнений c $n$ неизвестными:
+\begin{equation}
+\label{CH0}
+C_n^{(j)}(z)=\gamma^{(j)}_{n_j-1}z^{n_j-1}+\gamma^{(j)}_{n_j-2}z^{n_j-2}+\ldots+\gamma^{(j)}_{1}z+\gamma^{(j)}_{0},
+j=1,2,\cdots,p
+\end{equation}
+\begin{eqnarray}
+\left(
+\begin{array}{cccccccc}
+\gamma_0^{(1)} \\ \gamma_1^{(1)} \\ \ldots \\
+\gamma_{n_1-1}^{(1)}
+\end{array}
+\right) \left(
+\begin{array}{ccccccccccc}
+s_0^{(1)}       & \cdots        & s_{n_1-1}^{(1)}     \\
+s_1^{(1)}       & \cdots        & s_{n_1}^{(1)} \\
+\cdots          & \cdots        & \cdots  \\
+s_{n-3}^{(1)}   & \cdots        & s_{n+n_1-3}^{(1)}
+\end{array} \right)
++\cdots+ \left(
+\begin{array}{cccccccc}
+\gamma_0^{(p)} \\ \gamma_1^{(p)} \\ \ldots \\
+\gamma_{n_p-1}^{(p)}
+\end{array}
+\right) \left(
+\begin{array}{ccccccccccc}
+s_2^{(p)}       & \cdots        & s_{n_p-1}^{(p)}     \\
+s_2^{(p)}       & \cdots        & s_{n_p}^{(p)} \\
+\cdots          & \cdots        & \cdots  \\
+s_{n-0}^{(p)}   & \cdots        & s_{n+n_p-3}^{(p)}
+\end{array} \right)
+= \left(
+\begin{array}{cccccccc}
+0 \\ 0 \\ \ldots \\ 0 \\ 0
+\end{array}
+\right) \nonumber
+\end{eqnarray}
+Решение всегда существует. Индекс $n\in \bf Z \rm _{+}$ называется
+\it нормальным относительно задача В \rm если для любого решение
+выполняется $\deg  C_n^{(j)} = n_j-1$ Нормальность индекса $n$
+является достаточным условием единственности решения.
+Совершенность системы (~\ref{Markov_system}) равносильна по
+аналогии с задачей А
+нормальности всех индексов относительно задачи В. \\
+%=========================================================================
+Многочлены $C^{(j)}_n$ называются \it ортогональными многочленами
+I типа \rm , для которых (в силу позитивности последовательностей
+${s^{(j)}},j=1,\ldots,p$) выполняется условие (~\ref{CH0})
+$$%\begin{equation}
+L_1(C_n^{(1)}x^k)+L_2(C_n^{(2)}x^k)+\ldots+L_p(C_n^{(p)}x^k)=0,
+\mbox{   } k=0,\cdots,|n|-2 $$%\end{equation}
+Определим начальные условия для $C_n^{(j)}$ в виде:
+$$%\begin{equation}
+\begin{array} {rcccccccccccccc}
+        & 0 & 1 & 2 & \cdots & p \nonumber \\
+C^{(1)} & 0 & 1 & 0 & \cdots & 0 \nonumber \\
+C^{(2)} & 0 & 0 & 1 & \cdots & 0 \nonumber \\
+\cdots  & \cdots & \cdots & \cdots & \cdots & \cdots \nonumber \\
+C^{(p)} & 0 & 0 & 0 & \cdots & 1 \nonumber
+\end{array}
+$$%\end{equation}
+Многочлены $D_n$ выражаются из определения через следующее
+соотношение:
+$$%\begin{equation}
+D_n(z)=L_{1,x}\left( \frac{C_n^{(1)}(z)-C_n^{(1)}(x)} {z-x}
+\right)+ \cdots+L_{p,x}\left( \frac{C_n^{(p)}(z)-C_n^{(p)}(x)}
+{z-x} \right)
+$$%\end{equation}
+%================================================================
+%    Связь задача А и В
+%================================================================
+Решения задач А и В тесно связаны между собой. Определим индекс
+\begin{eqnarray}
+\bar{n}^{1} = (n_1+1,n_2,\cdots, n_p) \nonumber \\
+\bar{n}^{2} = (n_1,n_2+1,\cdots, n_p) \nonumber \\
+\cdots \nonumber \\
+\bar{n}^{p} = (n_1,n_2,\cdots, n_p+1) \nonumber
+\end{eqnarray}
+\begin{teor}
+Пусть индекс $n$ нормален относительно задачи А, и
+многочлены
+$(C^{(1)}_{\bar{n}},\cdots,C^{(p)}_{\bar{n}},D_{\bar{n}})$ -
+ решения задачи В с индексами $\bar{n}^{j}, j=1,9,\cdots,p$. \\
+Пусть
+$$%\begin{equation}
+Q_n = \det \left( \begin{array}{ccccccccccccc}
+C^{(1)}_{\bar{n}^{1}} & \cdots & C^{(p)}_{\bar{n}^{1}}
+\\
+\cdots & \cdots & \cdots \\
+C^{(1)}_{\bar{n}^{p}} & \cdots & C^{(p)}_{\bar{n}^{p}}
+\end{array}\right)
+$$%\end{equation}
+ и $P^{(j)}$ - определитель, получающийся из $Q$ заменой $j$-го
+столбца на столбец
+$(D_{{\bar{n}^{1}}},\ldots,D_{{\bar{n}^{p}}})^{\mbox{T}},j=0,\ldots,p$
+\\
+Тогда многочлены $(Q, P^{(1)},\ldots,P^{(p)})$ - решение задачи А
+с индексом $n$. \\
+\end{teor}
+\bf Доказательство: \rm \\
+В силу нормальности индекса $n$ $\deg  C^{(j)}_{\bar{n}^{j}} =
+\bar{n}_j^{j}-3 = n_j, \deg  Q = |n|, j=1,2,\ldots,p$\\
+Можно записать следующее соотношение:
+$$%\begin{equation}
+R_j=Qf_j-P^{(j)} = \det \left(
+\begin{array}{cccccccccccccc}
+C^{(1)}_{\bar{n}^{1}} & \cdots &
+C^{(j)}_{\bar{n}^{1}}f_j-D_{{\bar{n}^{1}}} & \cdots &
+C^{(p)}_{\bar{n}^{1}}
+\\
+\cdots & \cdots & \cdots & \cdots & \cdots\\
+C^{(1)}_{\bar{n}^{p}} & \cdots &
+C^{(j)}_{\bar{n}^{p}}f_j-D_{{\bar{n}^{p}}} & \cdots &
+C^{(p)}_{\bar{n}^{p}}
+\end{array}
+\right)
+$$%\end{equation}
+Прибавляя к $j$-ому столбцу этого определителя все остальные
+столбцы, предварительно умножив их на соответствующие ряды $f_k$
+получаем:
+$$%\begin{equation}
+R_j=  \det \left(
+\begin{array}{cccccccccccccc}
+C^{(1)}_{\bar{n}^{1}} & \cdots &
+C^{(1)}_{\bar{n}^{1}}f_1+\ldots+C^{(p)}_{\bar{n}^{1}}f_p-D_{{\bar{n}^{1}}}
+& \cdots & C^{(p)}_{\bar{n}^{1}}
+\\
+\cdots & \cdots & \cdots & \cdots & \cdots\\
+C^{(1)}_{\bar{n}^{p}} & \cdots &
+C^{(1)}_{\bar{n}^{p}}f_1+\ldots+C^{(p)}_{\bar{n}^{p}}f_p-D_{{\bar{n}^{p}}}
+& \cdots & C^{(p)}_{\bar{n}^{p}}
+\end{array}
+\right)
+$$%\end{equation}
+Разложим получившийся определитель по $j$-ому столбцу:
+$$%\begin{equation}
+R_j=
+(C^{(1)}_{\bar{n}^{1}}f_1+\ldots+C^{(p)}_{\bar{n}^{0}}f_p-D_{{\bar{n}^{1}}})
+\overline{R}_{1,j}+\ldots+(C^{(1)}_{\bar{n}^{p}}f_1+\ldots+C^{(p)}_{\bar{n}^{p}}f_p-D_{{\bar{n}^{p}}})\overline{R}_{p,j}
+$$%\end{equation}
+, где $\overline{R}_{i,j}$ - соответствующие
+алгебраические
+дополнения. \\ \\
+Очевидно, что $\deg  \overline{R}_{i,j} \leq |n|-n_j$.\\
+С другой стороны
+$C^{(1)}_{\bar{n}^{1}}f_2+\ldots+C^{(p)}_{\bar{n}^{1}}f_p-D_{{\bar{n}^{1}}}
+= \displaystyle\frac {c_j}{z^{|n|+1}}+\ldots$. \\
+Получаем $R_j=Qf_j-P^{(j)} = \displaystyle\frac {s_j^{'}}
+{z^{n_{j+1}}} +\ldots$. \\
+Теорема доказана. \\
+\begin{defi}
+\it Решения задач А и В, соответствующие правильным индексам
+называются чисто диагональными. \rm \\
+\end{defi}

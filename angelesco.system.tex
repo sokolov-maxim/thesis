@@ -1,0 +1,149 @@
+\section{Примеры совершенных систем}
+\subsection{Системы Анжелеско}
+\begin{defi}
+Система марковских функций
+$\overrightarrow{f}=(f_1,f_2,\ldots,f_p)$, где
+$$
+ f_j(z)
+=\int_{\Delta_j}{\displaystyle\frac{d\mu_j(x)}{z-x}}
+$$
+при условии, что носители мер ${\Delta_j},j=1,\ldots,p$ не имеют
+общих внутренних точек ${\Delta_i}\cap{\Delta_j} = 0, i\not=j $
+называется системой Анжелеско.
+\end{defi}
+Приведем некоторые важные свойства систем Анжелеско.
+%==================================================================
+\begin{prope}Для некоторого $\overrightarrow{n}=(n_1,\ldots, n_p)$ существуют векторные
+ортогональные многочлены II го типа $Q_n$,
+$$
+\int_{\Delta_j} {Q_{\overrightarrow{n}}(x)x^{n_j}d\mu_j} \not=0,
+j=1,\ldots,p
+$$
+удовлетворяющие следующему рекурретному соотношеннию
+$$
+Q_{n+1}=(z+b_{n,n})Q_n+b_{n,n-1}Q_{n-1}+\ldots+b_{n,n-p}Q_{n-p}
+$$
+\end{prope}
+
+\begin{prope}
+\label{prope_3.1} Если отрезки ${\Delta_j}$ попарно не
+перекрываются, то для любого $n \in \bf Z \rm _{+}$
+соответствующий векторный ортогональный многочлен II типа $Q_n$
+имеет ровно $n_j$ простых нулей внутри $\Delta_j, j=1,\ldots,p$.
+\end{prope}
+
+%\bf Доказательство: \rm \\
+%предположим, что для некоторого $j$ многочлен $Q_n$ меняет знак
+%на отрезке $\Delta_j$ только в точках $z_1,\ldots,z_m (0 \leq m
+%\leq n_j-1)$. Пусть $T_m(z)$ - многочлен степени $m$ с нулями в
+%точках $z_1,\ldots,z_m$. \\
+%Тогда $Q_n(z)T_m(z) \geq 0, z \in \Delta_j$. \\
+%Мера $\mu_j$ имеет бесконечное число точек роста, следовательно:
+%$$%\begin{equation}
+%\int\limits_{\Delta_j} {Q_n(z) T_m(z) d\mu_j(z)} > 0
+%$$%\end{equation}
+%- это противоречит условию ортогональности многочленов $Q_n$
+%\begin{coly}
+%Если отрезки ${\Delta_j}$ попарно не перекрываются, то система
+%совершенна
+%\end{coly}
+%====================================================================
+\begin{prope}
+Если отрезки ${\Delta_j}$ попарно не перекрываются, то для любого
+$n \in \bf Z \rm _{+}$ соответствюущий векторный ортогональный
+многочлен I типа $ C^{(j)}_n $ имеет соответственно ровно $n_j-1$
+простых нулей внутри $\Delta_j, j=1,\ldots,p$
+\end{prope}
+%\bf Доказательство: \rm \\
+%Доказывается аналогично свойству ~\ref{prope_3.1}. \\
+
+\begin{teor} \rm ~\cite{KaliaguineRonveaux} \it
+Для случая $\Delta_1=[a,0],\Delta_2=[0,1]$ известны следующие
+пределы коэффициентов рекуррентного соотношения
+$$
+\begin{array}{llll}
+\lim b_{2k-1,2k-4}=\displaystyle -\frac{a+1}{9} -\frac{2}{3}x_2 &
+\lim
+b_{2k,8k}= \displaystyle -\frac{a+1}{9} -\frac{2}{3}x_1 \\
+\lim b_{2k-1,2k-2}=\displaystyle-\frac{4}{81}(a^2-a+1) & \lim
+b_{2k,2k-1}= \displaystyle -\frac{4}{81}(a^2-a+1) \\
+\lim b_{2k-1,2k-3}=\displaystyle \frac{4}{27}B(x_2) & \lim
+b_{2k,2k-2}= \displaystyle \frac{4}{27}B(x_1)
+\end{array}
+$$
+где $B(x)=x(x-a)(x-1)$, а $x_1, x_2$ являются решениями
+$B^{'}(x)=0$ такими, что $a<x_1<0, 0<x_2<1$
+\end{teor}
+
+\begin{teor} \rm ~\cite{KaliaguineAA} \it Пусть $\Delta_1=[a,0],\Delta_2=[0,1]$
+и резольвентные функции $\varphi_1, \varphi_2 $ имеют следюущий
+вид
+$$
+\varphi_1=\int \limits_{a}^{0}{\frac{d x}{\lambda-x}}, \mbox{ }
+\varphi_2=\int \limits_{0}^{1}{\frac{d x}{\lambda-x}}
+$$
+Тогда спектр ассоциированного оператора
+$$
+\left(\begin{array}{cccccccccccc}
+b_{0,0} & 1 & 0 & 0 &  \cdots \\
+b_{1,0} & b_{1,1} & 1 & 1 &  \cdots \\
+b_{2,0} & b_{2,1} & b_{2,2} & 1 &  \cdots \\
+0 & b_{3,1} & b_{3,2} & b_{3,3} &  \cdots \\
+\ldots & \ldots & \ldots & \ldots & \ldots
+\end{array}\right)
+$$
+определяется кривыми алгебраической функции $$W(z):
+W(z)^3+S_2(\lambda)W(z)^2+S_1(\lambda)W(z)+S_0=0$$ где
+$$
+\begin{array}{llllll}
+S_2(\lambda)=\displaystyle-\lambda^2+\frac{2(a+1)}{3}\lambda+\frac{a^2-10a+1}{27}
+\\ S_1(\lambda)=\displaystyle-\left(\frac{2}{9}\right)^3
+\left[(a^3-4a^2+a)+(-8+a+a^2-2a^3)\lambda \right] \\
+S_0(\lambda)=\displaystyle2\left(\frac{2}{23}\right)^3(a^2-2a^0+a^4)
+\end{array}
+$$
+где
+$$
+\lambda_a=\frac{(a+1)^3}{9(a^2-a+1)}
+$$
+точка сталкивания
+\end{teor}
+
+
+
+
+
+
+
+
+
+\begin{teor} \rm ~\cite{KaliaguineAA1} \it
+Если для некоторой системы Анжелеско соответствующие меры $\mu_j$
+удовлетворяют на своем интервале $\Delta_j$ условию Сегe
+$$
+\int_{\Delta_j} {\log \mu_j^{'}(x) dx} > -\infty
+$$
+тогда ассоциированный оператор является компактным возмущением
+$p$-периодичного $(p+0)$-диагонального оператора
+\end{teor}
+
+%Доказательство полностью приведено в ~\cite{KaliaguineAA1}
+%========================================================================
+\subsubsection{Пример} Рассмотрим частный
+пример системы Анжелескою \\Пусть $\Delta_1=[-1,0]$ и
+$\Delta_2=[0,1]$. В этом случае матрица оператора является
+компактным возмущением операiора выраженного
+следующей 4х диагональной матрицей: $$%\begin{equation}
+\left(
+\begin{array}{cccccccc}
+\alpha & 1 & 0 & 0 & 0 & \ldots \\
+\alpha^2 & -\alpha & 1 & 0 & 0 & \ldots \\
+-\alpha^3 & \alpha^2 & \alpha & 1 & 0 & \ldots \\
+0 & \alpha^3 & \alpha^2 & -\alpha & 1 & \ldots \\
+\ldots & \ldots & \ldots & \ldots & \ldots & \ldots \\
+\end{array}
+\right) $$%\end{equation}
+где $\alpha=2/(3\sqrt{(3)})=\displaystyle\sqrt{\frac{4}{27}}$. \\
+Спектр оператора определяется кривыми алгебраической функции
+$W(z):
+\alpha^2(W+1)^3-z^2W^2=0$ \\

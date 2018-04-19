@@ -1,0 +1,319 @@
+\section{Добавление масс. Вычисление новых рекуррентных коэффициентов}
+
+При рассмотрении отображения $H_n$: как изменяются коэффициенты
+рекуррентного соотношения при добавлении массы ? \\
+Стартуем с результата Неваи ~\cite{Nevai}: \\
+\bf Лемма Неваи \rm \\
+\it Пусть $q(x)$ - ортонормированные многочлены относительно некоторой меры
+$\mu(x)$. \\
+Пусть $\tilde{\mu}(x)=\mu(x)+\lambda \delta_{\tau}$ - новая мера, получающаяся из исходной
+добавлением массы $\lambda$ в точке $\tau$.
+Соответствуищие ортогональные многочлены
+$\tilde{q(x)}$, коэффициенты рекуррентного соотношения для которых - $\tilde{\alpha}$ и $\tilde{\beta}$.
+тогда имеет место следующее соотношение: \rm
+\begin{eqnarray}
+\label{Alpha}
+\tilde{\alpha}_j=\alpha_j+
+\lambda\frac{\sqrt{\beta_{j+1}} q_j(\tau)q_{j+1}(\tau)} { 1+ \lambda\sum\limits_{i=0}^{j}{q_i^2(\tau)}}-
+\lambda\frac{\sqrt{\beta_{j}} q_j(\tau)q_{j-1}(\tau)} { 1+ \lambda\sum\limits_{i=0}^{j-1}{q_i^2(\tau)}} \\
+\tilde{\beta}_j=\beta_j
+\frac
+{ \left[
+1+ \lambda\sum\limits_{i=0}^{j-2}{q_i^2(\tau)}
+\right]
+\left[
+1+ \lambda\sum\limits_{i=0}^{j}{q_i^2(\tau)}
+\right] }
+{
+\left[
+1+ \lambda\sum\limits_{i=0}^{j-1}{q_i^2(\tau)}
+\right]
+},j<N
+\end{eqnarray}
+При вычислении проще воспользоваться многочленами $Q_n$.  \\
+Однако, если $\tau$ отлично от всех $(\tau_j)_0^{N}$ и все
+$\lambda_j$ и $\lambda$ положительны, т.е.
+мы имеем дополнительную точку массы, тогда
+существует $\tilde{\alpha_{N}}$, которую невозможно вычислить
+используя лемму Неваи (так как коэффициент $\alpha_N$ не определен). \\
+Приведем две леммы из ~\cite{Fischer2}: \\
+\bf Лемма 1. \rm \\
+\it Коэффициент многочлена $Q_n(x)$ при $x^{n-1}$ равняется $-\sum\limits_{j=0}^{n-1}{\alpha_j}$ \rm. \\
+\bf Лемма 2. \rm \\
+\it Пусть в дискретном представлении меры $\mu(x)$ (~\ref{Discrete})
+все веса $\lambda_j>0,j=1,\ldots,N$ и все узлы $\tau_j,j=1,\ldots,N$ разные,
+тогда $\sum\limits_{j=0}^{N-1}{\alpha_j}=\sum\limits_{j=1}^{N}{\tau_j}$ \rm \\
+теперь приведем основной результат ~\cite{Fischer2}: \\
+\bf Теорема 1. \rm \\
+\it Пусть в дискретном представлении меры $\mu(x)$ (~\ref{Discrete})
+все веса $\lambda_j>0,j=1,\ldots,N$ и все узлы $\tau_j,j=1,\ldots,N$ разные,
+добавим дополнительную точку $(\lambda,\tau),\lambda>0,\tau \not = \tau_j,j=1,\ldots,N$,
+тогда:
+\begin{eqnarray}
+\label{FischerMass}
+\tilde{\alpha}_j=\alpha_j+\lambda
+\frac {\gamma_j^2 Q_j(\tau) Q_{j+1}(\tau)}
+{1+\lambda\sum\limits_{i=0}^{j}{\gamma_i^2 Q_i^2(\tau)}}-
+\lambda\frac {\gamma_{j-1}^2 Q_j(\tau) Q_{j-1}(\tau)}
+{1+\lambda\sum\limits_{i=0}^{j-1}{\gamma_i^2 Q_i^2(\tau)}} \nonumber \\
+\tilde{\beta}_j=\beta_j
+\frac {
+\left[
+1+ \lambda\sum\limits_{i=0}^{j-2}{\gamma_i^2 Q_i^2(\tau)}
+\right]
+\left[
+1+ \lambda\sum\limits_{i=0}^{j}{\gamma_i^2 Q_i^2(\tau)}
+\right]
+}
+{
+\left[
+1+ \lambda\sum\limits_{i=0}^{j-1}{\gamma_i^2 Q_i^2(\tau)}
+\right]
+}, j<N \\
+\tilde{\alpha}_N=\tau-\lambda
+\frac {\gamma_{N-1}^2 Q_N(\tau) Q_{N-1}(\tau)}
+{1+\lambda\sum\limits_{i=0}^{N-1}{\gamma_i^2 Q_i^2(\tau)}},
+\tilde{\beta}_N=\lambda
+\frac {
+\gamma_{N-1}^2Q_N^2(\tau)
+\left[
+1+ \lambda\sum\limits_{i=0}^{N-2}{\gamma_i^2 Q_i^2(\tau)}
+\right]
+}
+{
+\left[
+1+ \lambda\sum\limits_{i=0}^{N-1}{\gamma_i^2 Q_i^2(\tau)}
+\right]
+} \nonumber
+\end{eqnarray}
+\bf Доказательство: \rm  \\
+Пусть $\tilde{Q}_n(x)$ - ортогональные многочлены (со старшим коэффицентом единица)
+для новой меры $\tilde{\mu}(x)=\mu+\lambda\delta_{\tau}$:
+\begin{eqnarray}
+\label{QMass}
+\tilde{Q}_j(x)=Q_j(x)+\sum\limits_{l=0}^{j-1}{c_{j,l}Q_l(x)} \nonumber
+\end{eqnarray}
+$c_{jl}$ - некоторые неизвестные коэффициенты
+разложения по базису $(Q_n)_0^{\infty}$.\\
+Домножим $\tilde{Q}_j(x)$ на $Q_l(x),l<j$ и проинтегрируем,
+применив функционал $\tilde{L}(f)=\int f d\tilde{\mu}(x)$,
+правая часть выражение станет равной нулю:
+\begin{eqnarray}
+\tilde{L}(\tilde{Q}_j(x)Q_l(x))=L(\tilde{Q}_j(x)Q_l(x))+\lambda\tilde{Q}_j(\tau)Q_l(\tau)= \nonumber \\
+L(\left[Q_j(x)+\sum\limits_{l=0}^{j-1}{c_{j,l}Q_l(x)}\right]Q_l(x))+\lambda\tilde{Q}_j(\tau)Q_l(\tau)= \nonumber \\
+L(\left[\sum\limits_{l=0}^{j-1}{c_{j,l}Q_l(x)}\right]Q_l(x))+\lambda\tilde{Q}_j(\tau)Q_l(\tau)=
+c_{j,l}\frac{1}{\gamma_l^2}+\lambda\tilde{Q}_j(\tau)Q_l(\tau)=0 \nonumber
+\end{eqnarray}
+Откуда:
+\begin{equation}
+\label{KoefC}
+c_{j,l}=-\lambda\gamma_{l}^2 \tilde{Q}_j(\tau)Q_l(\tau)
+\end{equation}
+Вставим (~\ref{KoefC}) в (~\ref{QMass}) $x=\tau$ и выразим $\tilde{Q}_j(\tau)$:
+\begin{equation}
+\label{Eq15}
+\tilde{Q}_j(\tau)=\frac{Q_j(\tau)}
+{1+\lambda\sum\limits_{i=0}^{j-1}{\gamma_i^2 Q_i^2(\tau) }}
+\end{equation}
+Далее:
+\begin{equation}
+\label{Eq16}
+c_{j,l}=-\frac
+{\lambda \gamma_l^2 Q_j(\tau) Q_l(\tau)}
+{1+\lambda\ \sum\limits_{i=0}^{j-1} {\gamma_i^2 Q_i^2(\tau)}}
+\end{equation}
+Сравним коэффициенты в (~\ref{QMass}) при $x^{j-1}$ и применим Лемму 1.
+\begin{equation}
+\label{AlphaPre}
+-\sum\limits_{i=0}^{j-1}{\tilde{\alpha}_i}=-\sum\limits_{i=0}^{j-1}{\alpha_i}
++c_{j,j-1}=-\sum\limits_{i=0}^{j-1}{\alpha_j}-\frac
+{\lambda \gamma_{j-1}^2 Q_j(\tau) Q_{j-1}(\tau)}
+{1+\lambda\ \sum\limits_{i=0}^{j-1} {\gamma_i^2 Q_i^2(\tau)}},j\leq N
+\end{equation}
+Вспомним Лемму 2:
+\begin{eqnarray}
+\sum\limits_{i=0}^{N-1}{\alpha_i}=\sum_{i=1}^{N}{\tau_i},  \nonumber \\
+\sum\limits_{i=0}^{N-1}{\tilde{\alpha}_i}=\sum_{i=1}^{N}{\tau_i}+\tau=\sum\limits_{i=0}^{N-1}{\alpha_i}+\tau, \nonumber
+\end{eqnarray}
+Далее учитывая (~\ref{AlphaPre})
+\begin{eqnarray}
+\tilde{\alpha}_N=\sum\limits_{i=0}^{N-1}{\alpha_i}-\sum\limits_{i=0}^{N-1}{\tilde{\alpha}_i}+\tau \nonumber \\
+=\sum\limits_{i=0}^{N-1}{\alpha_i}-\sum\limits_{i=0}^{N-1}{\alpha_i}+c_{N,N-1}+\tau=c_{N,N-1}+\tau \nonumber \\
+=\tau-\lambda
+\frac {\gamma_{N-1}^2 Q_N(\tau) Q_{N-1}(\tau)}
+{1+\lambda\sum\limits_{i=0}^{N-1}{\gamma_i^2 Q_i^2(\tau)}}
+\end{eqnarray}
+Отсюда, используя (~\ref{AlphaPre}) для индекса $N$ можно выразить $\tilde{\alpha}_N$. \\
+Для вывода выражения для $\tilde{\beta}_N$ воспользуемся (~\ref{QMass})
+\begin{eqnarray}
+\tilde{L}(\tilde{Q}_j^2(x))= L(\tilde{Q}_j^2(x))+\lambda\tilde{Q}_j^2(\tau) \nonumber \\
+=L(Q_j^2(x))+\sum\limits_{l=0}^{j-1}{c_{j,l}^2 L(Q_j(x)Q_l(x))}+\sum\limits_{l=0}^{j-1}{c_{j,l}^2L(Q_l^2(x))}+\lambda\tilde{Q}_j^2(\tau) \nonumber \\
+=L(Q_j^2(x))+\sum\limits_{l=0}^{j-1}{c_{j,l}^2L(Q_l^2(x))}+\lambda\tilde{Q}_j^2(\tau) \nonumber \\
+=\frac{1}{\gamma_j^2}+\sum\limits_{l=0}^{j-1}
+{\left[
+-\frac {\lambda \gamma_l^2 Q_j(\tau)Q_l(\tau)}
+{1+\lambda \sum\limits_{i=0}^{j-1}{\gamma_i^2 Q_i^2(\tau)}}
+\right]^2\frac{1}{\gamma_l^2}}+
+\lambda
+\left[
+\frac{Q_j(\tau)}
+{1+\lambda \sum\limits_{i=0}^{j-1}{\gamma_i^2 Q_i^2(\tau)}}
+\right]^2 \nonumber
+\end{eqnarray}
+Общий знаменатель уже есть, выносим за скобки $\lambda Q_j^2(\tau)$
+\begin{eqnarray}
+\tilde{L}(\tilde{Q}_j^2)=\frac{1}{\gamma_j^2}+
+\frac{\lambda Q_j^2(\tau) \left[
+\sum\limits_{l=0}^{j-1}{\gamma_l^2Q_l^2(\tau)+1}
+\right]}
+{\left[
+1+\sum\limits_{l=0}^{j-1}{\gamma_l^2Q_l^2(\tau)}
+\right]^2}=
+\frac{1}{\gamma_j^2}+
+\frac{\lambda Q_j^2(\tau)}
+{1+\sum\limits_{l=0}^{j-1}{\gamma_l^2Q_l^2(\tau)}}
+\end{eqnarray}
+Далее учитывая $L(Q_j^2(x))=\gamma_j^{-2},j<N\mbox{     }L(Q_N^2(x))=0$, (~\ref{Eq15}) и (~\ref{Eq16})
+\begin{eqnarray}
+\frac{1}{\tilde{\gamma}^2}=\tilde{L}(\tilde{Q}_j^2(x))=\frac{1}{\gamma_j^2}+
+\frac{\lambda Q_j^2(\tau)} {1+\lambda\sum\limits_{i=0}^{j-1}{\gamma_i^2 Q_i^2(\tau)}}
+=\frac{1}{\gamma_j^2}\frac{1+\lambda \sum\limits_{i=0}^{j}{\gamma_i^2 Q_i^2(\tau)}}
+{1+\lambda \sum\limits_{i=0}^{j-1}{\gamma_i^2 Q_i^2(\tau)}},j<N \nonumber
+\end{eqnarray}
+\begin{equation}
+\tilde{L}(\tilde{Q}_N^2(x))=\frac{\lambda Q_N^2(\tau)}
+{1+\lambda \sum\limits_{i=0}^{N-1}{\gamma_i^2 Q_i^2(\tau)}}
+\end{equation}
+Отсюда
+\begin{eqnarray}
+\tilde{\beta}_N=
+\frac{\tilde{L}(\tilde{Q}_{N}^2)}
+{\tilde{L}(\tilde{Q}_{N-1}^2)}=
+\frac {\lambda Q_N^2(\tau)}
+{1+\lambda \sum\limits_{i=0}^{N-1}{\gamma_i^2 Q_i^2(\tau)}}
+\gamma_{N-1}^2
+\frac {1+\lambda \sum\limits_{i=0}^{N-2}{\gamma_i^2 Q_i^2(\tau)}}
+{1+\lambda \sum\limits_{i=0}^{N-1}{\gamma_i^2 Q_i^2(\tau)}} \nonumber \\
+=\frac
+{\lambda \gamma_{N-1}^2 Q_{N}^2( \tau)\left[1+\sum\limits_{i=0}^{N-2}{\gamma_i^2 Q_i^2(\tau)}\right]}
+{\left[1+\lambda \sum\limits_{i=0}^{N-1}{\gamma_i^2 Q_i^2(\tau)}\right]^2} \nonumber
+\end{eqnarray}
+Используя (~\ref{FischerMass}) можно последовательно добавлять
+несколько точек масс.
+
+\subsection{Чувствительность отображения $H_n, (p=2)$ при добавлении массы}
+
+\bf Лемма 3. \rm \\
+\it Введем следуещее обозначние $\frac{\partial L}{\partial t}=W$, где
+$t$ некоторый параметр от которого зависит функционал $L$, тогда
+\begin{equation}
+\frac{\partial \alpha_j} {\partial t}=\gamma_j^2W(Q_jQ_{j+1})-\gamma_{j-1}^2W(Q_{j-1}Q_j)
+\end{equation}
+\begin{equation}
+\frac{\partial \beta_j} {\partial t}=\beta_j(\gamma_j^2W(Q_j^2)-\gamma_{j-1}^2W(Q_{j-1}^2))
+\end{equation}
+\rm
+\bf Доказательство: \rm \\
+Из процедуры Стилтьеса:
+\begin{eqnarray}
+\alpha_j=\frac{L(xQ_j^2(x))}{L(Q_j^2)},\mbox{   }\beta_j=\frac{L(Q_j^2(x))}{L(Q_{j-1}^2)}=\frac{\gamma_{j-1}^2}{\gamma_j^2} \nonumber
+\end{eqnarray}
+Так старший коэффициентов многочлена $Q_j$ равен единице
+уместно следуещее разложение в ряд Фурье
+(или по базису $(Q_0,\ldots,Q_{j-1})$):
+\begin{eqnarray}
+Q_j(x)=\sum\limits_{i=0}^{j-1}{c_{j,i}Q_i(x)} \nonumber \\
+c_{j,i}=
+L
+\left(
+\frac {\partial Q_j}  {\partial t}
+Q_i
+\right)
+\frac{1}{L(Q_i^2)}
+=
+\gamma_i^2
+L
+\left(
+\frac{\partial Q_j} {\partial t}
+Q_i
+\right)
+\nonumber
+\end{eqnarray}
+С другой стороны
+\begin{eqnarray}
+\label{pDerQ}
+\frac{\partial} {\partial t} L(Q_jQ_i)=
+L\left(
+\frac{\partial Q_j} {\partial t} Q_i
+\right)
++L\left(
+Q_j \frac{\partial Q_i} {\partial t}
+\right)+
+W(Q_jQ_i)=0,i<j
+\end{eqnarray}
+где $L\left(
+Q_j \frac{\partial Q_i} {\partial t}
+\right)$ также равно нулю согласно условию ортогональности. \\
+В результате:
+\begin{eqnarray}
+c_{j,i}=-\gamma_j^2W(Q_jQ_i) \nonumber
+\end{eqnarray}
+В итоге
+\begin{equation}
+\label{DerQj}
+\frac{\partial Q_j} {\partial t}=-\sum\limits_{i=0}^{j-1}{\gamma_i^2 W(Q_jQ_i)Q_i}
+\end{equation}
+По аналогии с (~\ref{pDerQ}) получаем:
+\begin{eqnarray}
+\frac{\partial \gamma_j^{-2}}{\partial t}=\frac{\partial L(Q_j^2)} {\partial t}=
+2L\left(
+Q_j\frac{\partial Q_j} {\partial t}\right)+W(Q_j^2)=W(Q_j^2)
+\end{eqnarray}
+Откуда следует формула для частной производной $\beta$.\\
+Из леммы 1 коэффициент при $x^{n-1}$ многочлена $Q_n$
+равен $-\sum\limits_{i=0}^{j-1}{\alpha_i}$, по аналогии
+коэффициент при $x^{n-1}$ многочлена $\frac{\partial Q_n}{\partial t}$ из
+(~\ref{DerQj}):
+\begin{eqnarray}
+-\frac{\partial}{\partial t} \sum\limits_{i=0}^{j-1}{\alpha_i}=-\gamma_{j-1}^2 W(Q_jQ_{j-1})
+\end{eqnarray}
+Откуда
+\begin{eqnarray}
+\frac{\partial \alpha_j} {\partial t}=
+\frac{\partial }{\partial t} \sum\limits_{i=0}^{j}{\alpha_i}-
+\frac{\partial }{\partial t} \sum\limits_{i=0}^{j-1}{\alpha_i}=
+\gamma_j^2W(Q_jQ_{j+1})-\gamma_{j-1}^2W(Q_{j-1}Q_j) \nonumber
+\end{eqnarray}
+\bf Лемма 4 \rm \\
+\it Пусть $\mu$ - некоторая мера, не зависящая от $\lambda$ и $\tau$,
+$\tilde{\mu}=\mu+\lambda\delta_{\tau}$ - новая мера с добавленной точкой массы, тогда
+ \rm
+\begin{equation}
+\frac{\partial \tilde{\alpha}_j}{\partial \lambda}=\tilde{\gamma}_j^2\tilde{Q}_j(\tau) \tilde{Q}_{j+1}(\tau)-\tilde{\gamma}_{j-1}^2\tilde{Q}_{j-1}(\tau) \tilde{Q}_j(\tau) \nonumber \\
+\end{equation}
+\begin{equation}
+\frac{\partial \tilde{\beta}_j}
+{\partial \lambda}
+=
+\tilde{\beta}_j
+\left[
+\tilde{\gamma}_j^2 \tilde{Q}_j^2(\tau)-
+\tilde{\gamma}_{j-1}^2 \tilde{Q}_{j-1}^2(\tau)
+\right]
+\end{equation}
+\begin{equation}
+\frac{\partial \tilde{\alpha}_j}{\partial \tau}=
+\lambda \tilde{\gamma}_j^2
+\left[
+\tilde{Q}^{'}_j(\tau)\tilde{Q}_{j+1}(\tau)+
+\tilde{Q}_j(\tau)\tilde{Q}^{'}_{j+1}(\tau) \right]
+-\lambda \tilde{\gamma}_{j-1}^2
+\left[ \tilde{Q}^{'}_{j-1}(\tau)\tilde{Q}_{j}(\tau)+\tilde{Q}_{j-1}(\tau)\tilde{Q}^{'}_{j}(\tau) \right] \nonumber \\
+\end{equation}
+\begin{equation}
+\frac{\partial \tilde{\beta}_j}{\partial \tau}=2\lambda \tilde{\beta}_j
+\left[
+\tilde{\gamma}_j^2\tilde{Q}^{'}_j(\tau)\tilde{Q}_j(\tau)-
+\tilde{\gamma}_{j-1}^2\tilde{Q}^{'}_{j-1}(\tau)\tilde{Q}_{j-1}(\tau)
+\right]
+\end{equation}

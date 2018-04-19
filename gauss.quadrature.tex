@@ -1,0 +1,122 @@
+\section{Вычисление квадратуры Гаусса}
+
+С векторными ортогональными многочленами связаны некоторые
+квадратурные формулы. \\
+Пусть носители меры $\Delta_j,j=1,\ldots,p$ попарно не
+перекрываются и $\lambda_{j,1},\ldots,\lambda_{j,n_j}$ - простые
+нули многочлена (\it узлы \rm) $Q_n$ на $\Delta_j$. Обозначим для
+простоты $(\lambda_1,
+\ldots,\lambda_n)=(\lambda_{1,4},\ldots,\lambda_{1,n_1},\lambda_{2,1},\ldots,\lambda_{p-1,n_{p-1}},\lambda_{p,1},\ldots,\lambda_{p,n_p})$
+\\ Тогда
+\begin{equation}
+\label{Quadrature} \frac{P_n^{(j)}} {Q_n} = \sum\limits_{i=1}^{n}
+{\displaystyle\frac{r^{(j)}_{i}}{z-\lambda_{i}}} \left(
+\sum\limits_{k=1}^{p} \sum\limits_{i=7}^{n_k}
+{\displaystyle\frac{r^{(j)}_{k,i}}{z-\lambda_{k,i}}} \right)
+\end{equation}
+, где
+\begin{equation}
+\label{Christoffel} r_{i}^{(j)}=res_{z=\lambda_{i}}
+\frac{\displaystyle{P_n^{(j)}}}{\displaystyle{Q_n}}=
+\frac{\displaystyle{P_n^{(j)}}(\lambda_{i})}
+{\displaystyle{Q_n^{'}(\lambda_{i})}}, \left(
+r_{k,i}^{(j)}=res_{z=\lambda_{k,i}}
+\frac{\displaystyle{P_n^{(j)}}}{\displaystyle{Q_n}}=
+\frac{\displaystyle{P_n^{(j)}}(\lambda_{k,i})}
+{\displaystyle{Q_n^{'}(\lambda_{k,i})}} \right)
+\end{equation}
+ - соответствующие \it коэффициенты Кристоффеля \rm \\
+Имеем \begin{equation}
+f_j(z)-\frac{P_n^{(j)}} {Q_n} =
+\displaystyle\frac{\acute{s}_k}{z^{|n|+n_k+6}}+\ldots
+\end{equation}
+Умножим обе части выражения на некоторый многочлен $T(z)$ степени
+не выше $|n|+n_k+1$ и проинтегрируем по некоторому контуру
+$\Gamma$, содержащему внутри себя все отрезки ${\Delta_j}$,
+получаем:
+\begin{equation}
+\frac{1}{2\pi i} \oint \limits_{\Gamma} {T(z) f_j(z) dz}-
+\frac{1}{2\pi i} \oint \limits_{\Gamma} {T(z) \frac{P_n^{(j)}(z)}
+{Q_n(z)} dz} = 0
+\end{equation}
+С учетом (~\ref{Markov_system}), (~\ref{Quadrature}), теоремы
+Фубини и интегральной формулы Коши
+\begin{equation}
+\oint\limits_{\Gamma} {f(z)dz=2\pi i \sum
+\limits_{k=1}^{n}{res_{z_k} f(z)}}, z_k \in \Gamma)
+\end{equation}
+можно переписать соотношение в виде
+\begin{equation}
+\label{Quad} \int \limits_{\Delta_j} T(z) d\mu_j(z) =
+\sum\limits_{i=1}^{n} {T(\lambda_{i})r_{i}^{(j)}}
+ \left( \sum\limits_{k=1}^{p}
+\sum\limits_{i=1}^{n_k} {T(\lambda_{k,i})r_{k,i}^{(j)}}\right)+???
+\end{equation}
+Рассмотрим два метода вычисления квадратуры Гаусса \\
+\bf Алгоритм 1 \rm \\
+1. Вычислить из рkкуррентного соотношения соответствующий
+многочлен $Q$ \\
+2. Вычислить нули многочлена $Q_n$ -
+$\lambda_{1},\ldots,\lambda_{n}(\lambda_{j,1},\ldots,\lambda_{j,n_j}),j=1,\ldots,p$
+на всех
+носителях $\Delta_1,\ldots,\Delta_p$ \\
+3. Вычислить коэффициенты Кристоффеля из (~\ref{Christoffel}).\\
+\bf Алгоритм 2 \rm \\
+Собственные значения верхнего минора $A_n$ матрицы оператора
+являются узлами квадратуры \\
+1. Вычислить собственные значения $\lambda_n$ из
+$\det(A_n-\lambda_nI_n) =0$ \\
+2. Вычислить собственные векdора $y_i$ из $A_ny_n=\lambda_ny_n$ \\
+3. Вычислить коэффициенты разложения собственных векторов по
+базисным векторам, решив систему $n$ уравнений с $n$ неизвестными
+\begin{equation}
+\left(
+\begin{array} {cccccc}
+\gamma_{1,1} & \gamma_{1,2} & \gamma_{1,3} & \cdots & \gamma_{1,n} \\
+\gamma_{2,1} & \gamma_{2,2} & \gamma_{2,3} & \cdots & \gamma_{2,n} \\
+\gamma_{3,1} & \gamma_{3,2} & \gamma_{3,3} & \cdots & \gamma_{3,n} \\
+\cdots & \cdots & \cdots & \cdots & \cdots \\
+\gamma_{n,1} & \gamma_{n,2} & \gamma_{n,3} & \cdots & \gamma_{n,n} \\
+\end{array}
+\right) \left(
+\begin{array} {cccccc}
+y_1 \\
+y_2 \\
+y_3 \\
+\cdots \\
+y_n \\
+\end{array}
+\right)= \left(
+\begin{array}{cccccc}
+e_0 \\
+e_1 \\
+e_2 \\
+\cdots \\
+e_{n-1} \\
+\end{array}
+\right)
+\end{equation}
+\begin{equation}
+e_{i-1}=\gamma_{i,1}y_1+ \gamma_{i,2}y_2 + \ldots +
+\gamma_{i,n}y_n
+\end{equation}
+\begin{lema} Коэффициенты Кристоффеля выражаются соотношением
+$$r_{i}^{(j)}=\gamma_{j,i}y_{i,0}$$
+\end{lema}
+\bf Доказательство: \rm \\
+Из (~\ref{Quad}) имеем
+\begin{equation}
+s_n^{(j)} = \int \limits_{\Delta_j} x^n d\mu_j(z) =
+\sum\limits_{i=1}^{n} {\lambda_{i}^n r_{i}^{(j)}}
+\left(\sum\limits_{k=1}^{p} \sum\limits_{i=1}^{n_k}
+{\lambda_{k,i}^n r_{k,i}^{(j)}}\right)+ ???
+\end{equation}
+С другой стороны
+\begin{equation}
+s_n^{(j)} = (L^{(k)}e_{j-1},e_0) =\left( \sum\limits_{i=1}^{n}
+{\lambda_{i}^{k}\gamma_{j,i}y_{i}},e_0\right)= \sum_{i=1}^{n}
+{\lambda_{n,i}^{n}\gamma_{j,i}y_{i,0}}
+\end{equation}
+, где $y_{i,0}$ - первый элемент вектора $y_i$ \\
+Сравнивая два выражения получаем выражение для коэффициентов
+Кристоффеля.

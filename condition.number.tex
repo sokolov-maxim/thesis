@@ -1,0 +1,455 @@
+\chapter{Теоретические аспекты векторных ортогональных многочленов}
+\section{Норма матрицы, Число обусловленности}
+
+Нормы матрицы $A=(a_{j,k})_{j,k=0}^{2n-1}$:
+\begin{equation}
+\mbox{sup-norm} \parallel A \parallel_\infty={\max\limits_{0\leq j \leq 2n-1}} \sum\limits_{k=0}^{2n-1}{\left| a_j,k \right| }
+\end{equation}
+Норма Фробениуса:
+\begin{equation}
+\parallel A \parallel_F=\sqrt{\left( \sum\limits_{j,k=0}^{2n-1}{a_{j,k}^2}\right)}
+\end{equation}
+Норма Холдера:
+\begin{equation}
+\parallel A \parallel_2=
+\end{equation}
+\begin{equation}
+\parallel A \parallel_2\leq \parallel A \parallel_F \leq \parallel \sqrt{n} \parallel A \parallel_2
+\end{equation}
+
+Обычно в качестве числа обусловленности гладкого нелинейного
+отображения $M:\mbox{ \bf R \rm}^{2n} \rightarrow \mbox{ \bf R \rm}^{2n}$
+выбирают:
+\begin{equation}
+\mbox{cond} M(x) = \lim\limits_{\parallel \Delta x \parallel \rightarrow 0} \sup
+\frac{\parallel M(x+\Delta x)-M(x) \parallel}
+{\parallel M(x) \parallel}\cdot
+\frac{\parallel x \parallel}
+{\parallel \Delta x \parallel}=
+\frac{\parallel x \parallel}
+{\parallel M(x) \parallel}
+\parallel M^{'}(x) \parallel
+\end{equation}
+где $M^{'}(x)=\left( \frac{\partial y_j} {\partial x_k}
+\right)_{j,k}$ - матрица якобиана, $\parallel \cdot \parallel$ -
+соответствующая норма вектора или матрицы. В ~\cite{Beckermann1}
+добавляется дополнительный масштабирующий параметр
+\begin{equation}
+\mbox{cond}_D M(x)=\frac{\parallel M^{'}(x)D \parallel_F}
+{\parallel y \parallel_2}
+\parallel D^{-1}x \parallel_2
+\end{equation}
+где $D$ - некоторая диагональная матрица ($D=I$ или $D=D_{nor}$)
+\begin{equation}
+D^2_{nor}=\mbox{diag}(\int\pi^2(x)_k dl(x))_{k=0,\ldots,2n-1})
+\end{equation}
+где $l$ - некоторая мера, соответствующая многочленам
+$\pi$,$(D_nor^{-1}\cdot m)$ -
+вектор \it нормализованных \rm модифицированных моментов
+\begin{equation}
+\tilde{m}_k=\displaystyle \frac{m_k}{\sqrt{\int\pi_k^2(x) dl(x))}}
+\end{equation}
+построенных по ортонормированным многочленам $\pi(x)$
+\\
+Нас интересуют числа обусловленности следующих отображений: \\
+1. От квадратуры Гаусса-Кристоффеля к коэффициентам рекуррентных соотношений
+\begin{equation}
+H_n:\left[\tau_1,\ldots, \tau_n,\lambda_1,\ldots,\lambda_n \right]^{T}\ss\left[\alpha_0,\ldots,\alpha_{n-1},\beta_0,\ldots,\beta_{n-1}\right]^{T}
+\end{equation}
+2. От обычных моментов к квадратуре Гаусса-Кристоффеля
+\begin{eqnarray}
+G_n^{0}:s=\left[s_0,\ldots,s_{2n-1}\right]^{T} \ss \left[\tau_1,\ldots, \tau_n,\lambda_1,\ldots,\lambda_n \right]^{T} \nonumber
+\end{eqnarray}
+3. От модифицированных моментов к квадратуре Гаусса-Кристоффеля
+\begin{eqnarray}
+G_n:m=\left[m_0,\ldots,m_{2n-1}\right]^{T} \ss \left[\tau_1,\ldots, \tau_n,\lambda_1,\ldots,\lambda_n \right]^{T} \nonumber \\
+\mbox{cond}(G_n,m)=\frac{\parallel m \parallel}{\parallel G_n(m)\parallel}\parallel G_n^{'}(m) \parallel \nonumber
+\end{eqnarray}
+4. От обычных моментов к коэффициентам рекуррентных соотношений
+\begin{eqnarray}
+K_n^{0}:s=\left[s_0,\ldots,s_{2n-1}\right]^{T} \ss \left[\alpha_0,\ldots,\alpha_{n-1},\beta_0,\ldots,\beta_{n-1}\right]^{T}=G_n^{0} \cdot {H_n} \nonumber
+\end{eqnarray}
+5. От модифицированных моментов к коэффициентам рекуррентных соотношений
+\begin{eqnarray}
+K_n:\left[m_0,\ldots,m_{2n-1}\right]^{T} \ss \left[\alpha_0,\ldots,\alpha_{n-1},\beta_0,\ldots,\beta_{n-1}\right]^{T}=G_n \cdot {H_n} \nonumber \\
+\mbox{cond}(K_n,m)=\frac{\parallel m \parallel}{\parallel K_n(m)\parallel}\parallel K_n^{'}(m) \parallel
+=\mbox{cond}G_n \cdot {H_n}\leq \mbox{cond}G_n \cdot\mbox{cond} {H_n} \nonumber
+\end{eqnarray}
+
+\section{Число обусловленности $G_n^{0}$}
+
+Источник ~\cite{GautschiW5}. Отображение $G_n^{0}$ эквивалентно решению
+нелинейной системы уравнений
+\begin{eqnarray}
+s_j=\int{x^jd\mu(x)}=\sum\limits_{i=1}^{n}{\lambda_i^j\tau_i}, j=0,\ldots,2n-1
+\end{eqnarray}
+Якобиан обратного отображения (от квадратуры к обычным моментам) известен
+и равен $\Phi=\Xi\cdot\Lambda$:
+\begin{equation}
+\Xi=
+\left[
+\begin{array}{cccccccccc}
+1 &  \ldots & 1 & 0  & \ldots & 0 \\
+\lambda_1 & \ldots & \lambda_{n} & 1 & \ldots & 1 \\
+\lambda^2_1 & \ldots & \lambda^2_{n} & 2\lambda_1 & \ldots & 2\lambda_n\\
+\ldots & \ldots & \ldots & \ldots & \ldots & \ldots  \\
+\lambda^n_1 & \ldots & \lambda^n_{n} & n\lambda^{n-1}_1 & \ldots & n\lambda^{n-1}_n\\
+\ldots & \ldots & \ldots & \ldots & \ldots & \ldots  \\
+\lambda^{2n-1}_1 & \ldots & \lambda^{2n-1}_{n} & (2n-1)\lambda^{2n-2}_1 & \ldots & (2n-1)\lambda^{2n-2}_{n}\\
+\end{array}
+\right]
+\end{equation}
+где $\Lambda=diag(1,\ldots,1,\tau_1,\ldots,\tau_n)$
+Следовательно имеем:
+\begin{equation}
+\mbox{cond}G_n^{0}=\frac
+{\parallel (s_0,\ldots,s_{2n-1}) \parallel}
+{\parallel (\lambda_1,\ldots,\lambda_{n},\tau_{1},\ldots,\tau_{n})\parallel}
+\parallel \Lambda^{-1}\Xi^{-1} \parallel
+\end{equation}
+\bf Теорема \rm
+\it Пусть $\lambda_1,\ldots,\lambda_n$ взаимно положительны, определим
+в качестве нормы матрицы максимальную сумму модулей элементов по строкам.
+Тогда:
+\begin{equation}
+u_1\leq \parallel \Xi^{-1} \parallel \leq max(u_1,u_2)
+\end{equation}
+где
+\begin{equation}
+u_1=\max\limits_{1\leq i \leq n}b^{(1)}_i\prod\limits_{k=1,k\not=i}^{n}
+\left(
+\frac{1+\lambda_k}
+{\lambda_i-\lambda_k}
+\right)^2, \quad b_i^{(1)}=1+\lambda_i
+\end{equation}
+
+\begin{eqnarray}
+u_2=\max\limits_{1\leq i \leq n}b^{(2)}_i
+\prod\limits_{k=1,k\not = i}^{n}
+\left(
+\frac{1+\lambda_k}
+{\lambda_i-\lambda_k}\right)^2, \quad
+b_i^{(2)}=
+1+2(1+\lambda_i)
+\left|
+\sum\limits_{k=1,k\not=i}^{n}
+{
+\frac{1}
+{\lambda_i-\lambda_k}
+}
+\right|
+\end{eqnarray}
+\rm
+Доказательство: \\
+Известно, что
+\begin{equation}
+\Xi^{-1}=\left[
+\begin{array} {ccccc}
+A \\
+B
+\end{array}
+\right],A=(a_{i,j}),B=(b_{i,j})_{i,j=1,\ldots,2n}
+\end{equation}
+где
+\begin{eqnarray}
+\sum\limits_{j=1}^{2n}{\left| a_{i,j}\right|} \leq
+b^{(2)}_i\prod\limits_{k\not= i}{\left(
+\frac{1+\lambda_k}{\lambda_i-\lambda_k}\right)^2} \nonumber \\
+\sum\limits_{j=1}^{2n}{\left| b_{i,j}\right|} =
+ b^{(1)}_i\prod\limits_{k\not= i}{\left(
+\frac{1+\lambda_k}{\lambda_i-\lambda_k}\right)^2} \nonumber
+\end{eqnarray}
+Откуда и следует вышесказанное.
+Конечная оценка Гаучи
+\begin{equation}
+\mbox{cond}G_n^{0}>min(s_0,\frac{1}{s_0})\frac{(17+6\sqrt{8})^n}{64n^2}
+\end{equation}
+
+\section{Число обусловленности $G_n$}
+
+Источник ~\cite{GautschiW5}:
+\begin{equation}
+\mbox{cond}_{D_{nor}}G_n=\frac{\parallel (\tilde{m}_0,\ldots,\tilde{m}_{2n-1}) \parallel_2}
+{\parallel (\lambda_1,\ldots,\lambda_{n},\tau_{1},\ldots,\tau_{n})\parallel_2}
+\sqrt{\int {\sum\limits_{i=1}^{n}\left(
+h_i^2(x)+\frac{1}{\tau_i^2}k_i^2(x)
+\right)dl(x)}}
+\end{equation}
+где $\parallel (\tilde{m}_0,\ldots,\tilde{m}_{2n-1}) \parallel_2=
+\displaystyle\sum\limits_{i=0}^{2n-1}{\frac{1}{\tilde{m}^2_i}}$ и
+$\parallel (\lambda_1,\ldots,\lambda_{n},\tau_{1},\ldots,\tau_{n})\parallel_2=
+\sum\limits_{i=1}^{n}{(\lambda_i^2+\tau_i^2)}$ \\
+Запишем из определения нормализованных модифицированных моментов
+\begin{eqnarray}
+\tilde{m}_k=\displaystyle \frac{\int \pi_k d\mu(x)}{\sqrt{\int\pi_k^2(x) dl(x))}}=
+\frac{1}{\sqrt{d_k}}\sum\limits_{i=0}^{2n-1}{\pi_k(\lambda_i)\tau_i},k=0,1,\ldots,2n-1 \nonumber
+\end{eqnarray}
+Якобиан обратного отображения из выше сказанного равен
+$\Phi=D^{-1}\Xi\Lambda$, где
+$D=diag(\sqrt{d_0},\ldots,\sqrt{d_{2n-1}}),\Lambda=diag(1,\ldots,1,\tau_1,\ldots,\tau_n)$ и
+\begin{equation}
+\Xi=\left[
+\begin{array}{cccccccccc}
+\pi_0(\lambda_1) & \ldots & \pi_0(\lambda_n) & \pi^{'}_0(\lambda_1) & \ldots & \pi^{'}_0(\lambda_n) \\
+\pi_1(\lambda_1) & \ldots & \pi_1(\lambda_n) & \pi^{'}_1(\lambda_1) & \ldots & \pi^{'}_1(\lambda_n) \\
+\ldots & \ldots & \ldots & \ldots & \ldots & \ldots  \\
+\pi_{2n-1}(\lambda_1) & \ldots & \pi_{2n-1}(\lambda_n) & \pi^{'}_{2n-1}(\lambda_1) & \ldots & \pi^{'}_{2n-1}(\lambda_n) \\
+\end{array}
+\right]
+\end{equation}
+Число обусловленности соответственно:
+\begin{eqnarray}
+\mbox{cond}_{D_{nor}}G_n=\frac{\parallel (\tilde{m}_0,\ldots,\tilde{m}_{2n-1}) \parallel_2}
+{\parallel (\lambda_1,\ldots,\lambda_{n},\tau_{1},\ldots,\tau_{n})\parallel_2}
+\parallel\Phi^{-1}(\lambda,\tau) \parallel
+\end{eqnarray}
+далее $\parallel \Phi^{-1} \parallel=\parallel \Lambda^{-1} \Xi^{-1} D \parallel
+\leq \parallel \Lambda^{-1} \Xi^{-1} D \parallel_F$
+Из предыдущей главы
+\begin{equation}
+\Xi^{-1}=\left[
+\begin{array}{ccccc}
+A \\
+B
+\end{array}
+\right],
+(\Lambda^{-1}\Xi^{-1}D)=\sqrt{d}\left[
+\begin{array}{cccccccc}
+A \\
+\displaystyle\frac{1}{\tau}B
+\end{array}
+\right]
+\end{equation}
+Соответственно
+\begin{equation}
+\parallel \Lambda^{-1} \Xi^{-1}D \parallel^2_F=
+\sum\limits_{i=1}^n
+{
+\sum\limits_{j=1}^{2n}
+{
+d_{j-1}
+\left(
+a_{i,j}^2+\displaystyle\frac{1}{\tau_i^2}b_{i,j}^2
+\right)
+}}
+\end{equation}
+Далее
+\begin{eqnarray}
+h_k(x)=\sum\limits_{i=1}^{2n}{a_{k,i}\pi_{i-1}(x)}, k_n=\sum\limits_{i=1}^{2n}{b_{k,i}\pi_{i-1}(x)} \nonumber \\
+\int{\pi^2_k(x)dl(x)}=\sum\limits_{i=1}^{2n}{d_{i-1}a_{k,i}^2},\int{k_k^2(x)dl(x)}=\sum\limits_{i=1}^{2n}{d_{i-1}b_{k,i}^2} \nonumber \\
+\parallel \Lambda^{-1} \Xi^{-1} D \parallel_F^2=\int {\sum\limits_{i=1}^{n}\left(
+h_i^2(x)+\frac{1}{\tau_i^2}k_i^2(x)
+\right)dl(x)} \nonumber
+\end{eqnarray}
+Отметим, что интеграл является полиномом степени не выше $4n-2$
+
+
+\section{Число обусловленности отображения $H_n (p=2)$}
+
+Источник ~\cite{Beckermann1} \\
+\begin{equation}
+\mbox{cond}_{D_{opt}}H_n\leq 6\sqrt{2n}\left[
+n+\sqrt{
+\left(
+\mu^2\sum\limits_{j=1}^{n}\sum\limits_{k=1}^{n}
+\frac{1}{\tau_k}\prod_{i=1,i\not=k}^{n}{
+\left(
+\frac{\lambda_j-\lambda_i}{\lambda_k-\lambda_i}\right)^2
+}\right)}
+\right]
+\end{equation}
+
+
+\section{Число обусловлености отображения $K_n (p=2)$  }
+
+Источник ~\cite{Fischer1}:
+\begin{equation}
+\mbox{cond}_{D_{nor}}K_n=\frac{\parallel (\tilde{m}_0,\ldots,\tilde{m}_{2n-1}) \parallel_2}
+{\parallel (\alpha_0,\ldots,\alpha_{n-1},\beta_{0},\ldots,\beta_{n-1})\parallel_2}
+\sqrt{\sum\limits_{j=0}^{2n-1} {w_2}}
+\end{equation}
+, где $w_2=\sum\limits_{j=0}^{n-1}{\psi_{2j}^2+\psi_{2j+1}^2}=
+\sum\limits_{j=0}^{n-1}{\beta_j^2(q_j^2-q_{j-1}^2)^2+
+(\sqrt{\beta_{j+1}}q_jq_{j+1}-\sqrt{\beta_j}q_{j-1}q_j)^2}$
+В ~\cite{Beckermann1} на основе точных формул Фишера приведены следующие оценки для мер
+с компактным расположением. $\mu(x)$ - мера, соответствующая обычным моментам,
+$l(x)$ - мера, соответствующая модифицированным моментам. \\
+
+
+\subsection{ Вычисление частных производных $\frac{\partial \alpha_j}{\partial m_k}$ и $\frac{\partial \beta_j}{\partial m_k}$ }
+Пусть ($\pi_0,\ldots,\pi_N$) некоторый базис в пространстве $\bf P \rm_N$ полиномов степени не выше $N$.
+Для любого полинома $q\in \bf P \rm_N$ степени не выше $N$ можно записать разложение по базису:
+\begin{equation}
+\label{Basisq}
+q(x)=\sum\limits_{j=0}^{N}{W_j(q(x))\pi_j(x)}
+\end{equation}
+где $W_j$ - некоторый линейный функционал.
+В случае обычных моментов:
+\begin{eqnarray}
+q(x)=\sum\limits_{j=0}^{N} { \frac { q^{(j)}(x)} {j!}  x^j} \nonumber \\
+\pi_j(x)=x^j, \mbox{   } W_j(q(x))=\frac { q^{(j)}(x)} {j!} \nonumber
+\end{eqnarray}
+\bf Лемма 1 \rm \\
+Из (~\ref{Ord Mod moments}) и (~\ref{Basisq}) следует $\int{q(x)d\mu(x)}=\sum\limits_{j=0}^{N}{W_j(q)m_j}$ \\
+Пусть $q$ - зависящие от модифицированных моментов имеют непрерывные частные производные в некоторой окрестности $m$. \\
+Тогда,
+\begin{equation}
+\frac{\partial}{\partial m_k} \int q(x) d\mu(x)=W_k(q)+\int { \frac {\partial q} {\partial m_k}  d\mu(x)}
+\end{equation}
+\bf Доказательство: \rm
+\begin{eqnarray}
+\frac{\partial}{\partial m_k} \int q(x) d\mu(x)=
+W_k(q)+\sum\limits_{j=0}^{N} { \frac {\partial W_j(q)} {\partial m_k} m_j}= \nonumber \\
+W_k(q)+\sum\limits_{j=0}^{N} { W_k \left( \frac {\partial q} {\partial m_k} \right) m_j}=
+W_k(q)+\int { \frac {\partial q} {\partial m_k}  d\mu(x)} \nonumber
+\end{eqnarray}
+Для $(i<j)$ из (~\ref{Orthq}) получаем :
+\begin{equation}
+\label{Orth1}
+\int q_i(x)\frac{\partial q_j(x)}{\partial m_k}d\mu(x)=-W_k(q_iq_j)
+\end{equation}
+\begin{eqnarray}
+\frac{\partial}{\partial m_k} \int q_i(x)q_j(x)d\mu(x)=
+W_k(q_iq_j)+\int \frac{\partial q_i(x)}{\partial m_k}q_j(x)d\mu(x)+\int q_i(x)\frac{\partial q_j(x)}{\partial m_k}d\mu(x)= \nonumber \\
+W_k(q_iq_j)+\int q_i(x)\frac{\partial q_j(x)}{\partial m_k}d\mu(x)=0 \nonumber
+\end{eqnarray}
+Из второго соотношения (~\ref{Orthq}) получаем:
+\begin{equation}
+\label{Orth2}
+\int q_j(x)\frac{\partial q_j(x)}{\partial m_k}d\mu(x)=-\frac{1}{2}W_k(q_j^2)
+\end{equation}
+\begin{eqnarray}
+\frac{\partial}{\partial m_k} \int q_j^2(x)d\mu(x)=W_k(q_j^2)+2\int{q_j\frac{\partial q_j(x)}{\partial m_k}d\mu(x)}=0 \nonumber
+\end{eqnarray}
+Перепишем и продифференцируем рекуррентное соотношение:
+\begin{eqnarray}
+\label{Rec1}
+\beta_{j+1}^{1/2}q_{j+1}(x)=(x-\alpha_j)q_j(x)-\beta_{j}^{1/2}q_{j-1}(x) \nonumber \\
+\frac {\partial \beta_{j+1}^{1/2}} {\partial m_k} q_{j+1}(x)+
+\beta_{j+1}^{1/2} \frac {\partial q_{j+1}} {\partial m_k}= \nonumber \\
+-\frac {\alpha_j} {\partial m_k} q_j(x)+
+(x-\alpha_j)\frac {q_j(x)} {\partial m_k}-
+\frac {\beta_j^{1/2}} {\partial m_k}q_{j-1}(x)
+-\beta_j^{1/2}\frac {q_{j-1}(x)} {\partial m_k}
+\end{eqnarray}
+Из рекуррентного соотношения:
+\begin{eqnarray}
+\beta_{j+2}^{1/2}q_{j+2}(x)=(x-\alpha_{j+1})q_{j+1}(x)-\beta_{j+1}^{1/2}q_{j}(x) \nonumber \\
+\beta_{j+2}^{1/2}q_{j+2}(x)=(x-\alpha_{j+1}+\alpha_j-\alpha_j)q_{j+1}(x)-\beta_{j+1}^{1/2}q_{j}(x) \nonumber \\
+(x-\alpha_j)q_{j+1}(x)=\beta_{j+2}^{1/2}q_{j+2}(x)+(\alpha_{j+2}-\alpha_{j+1})q_{j+1}(x)+\beta_{j+1}^{1/2}q_{j}(x) \nonumber
+\end{eqnarray}
+Домножим (~\ref{Rec1}) на $q_{j+1}(x)$:
+\begin{eqnarray}
+\frac {\partial \beta_{j+1}^{1/2}} {\partial m_k}
++\beta_{j+1}^{1/2} \frac {\partial q_{j+1}(x) } {\partial m_k}q_{j+1}(x)
+ = (x-\alpha_j)q_{j+1}(x)\frac {q_j(x)} {\partial m_k} \nonumber
+\end{eqnarray}
+Подставляем выражение для $(x-\alpha_j)q_{j+1}(x)$:
+\begin{eqnarray}
+\frac {\partial \beta_{j+1}^{1/2}} {\partial m_k}
++\beta_{j+1}^{1/2} \frac {\partial q_{j+1}(x) } {\partial m_k}q_{j+1}(x)
+ =\beta_{j+1}^{1/2} q_{j}(x)\frac {q_j(x)} {\partial m_k} \nonumber
+\end{eqnarray}
+Проинтегрируем полученное выражение и учтем (~\ref{Orth2})
+\begin{eqnarray}
+\frac {\partial \beta_{j+1}^{1/2}} {\partial m_k}-\frac{1}{2}\beta_{j+1}^{1/2}W_k(q_{j+1}^2)=-\frac{1}{2}W_k(q_k^2) \nonumber \\
+\frac {\partial \beta_{j+1}^{1/2}} {\partial m_k}=\frac{1}{2}\beta_{j+1}^{1/2}W_k(q_{j+1}^2-q_k^2) \nonumber
+\end{eqnarray}
+Домножим на $2\beta^{1/2}$
+\begin{equation}
+\frac {\partial \beta_{j+1}} {\partial m_k}=\beta_{j+1}W_k(q_{j+1}^2-q_k^2)
+\end{equation}
+Домножим (~\ref{Rec1}) на $q_{j}(x)$
+\begin{eqnarray}
+\frac {\partial \beta_{j+1}^{1/2}} {\partial m_k}q_{j+1}(x)q_j(x)
++\beta_{j+1}^{1/2} \frac {\partial q_{j+1}(x) } {\partial m_k}q_{j}(x)
+ = -\frac {\alpha_j} {\partial m_k} q_j(x)q_j(x)+
+(x-\alpha_j)q_j(x) \frac {\partial q_j(x)} {\partial m_k} \nonumber
+\end{eqnarray}
+Учитывая, что
+$(x-\alpha_j)q_j(x)=\beta_{j+1}^{1/2}q_{j+1}(x)+\beta_{j}^{1/2}q_{j-1}(x)$
+перепишем:
+\begin{eqnarray}
+\frac {\partial \beta_{j+1}^{1/2}} {\partial m_k}q_{j+1}(x)q_j(x)
++\beta_{j+1}^{1/2} \frac {\partial q_{j+1}(x) } {\partial m_k}q_{j}(x)
+ = -\frac {\alpha_j} {\partial m_k} q_j(x)q_j(x)+
+\beta_{j}^{1/2}\frac {\partial q_j(x)} {\partial m_k}q_{j-1}(x) \nonumber
+\end{eqnarray}
+Интегрируя полученное выражение и учитывая (~\ref{Orth2}) получаем:
+\begin{equation}
+-\beta_{j+1}^{1/2}W_k(q_{j+1}q_j)=-\frac {\alpha_j} {\partial m_k}
+-\beta_j^{1/2}W_k(q_jq_{j-1})
+\end{equation}
+\bf Теорема 1 \rm \\
+При выполнении  (~\ref{Orthq}), (~\ref{Ord Mod moments}), (~\ref{Basisq})
+частные производные для коэффициентов рекуррентного
+соотношения выражаются как:
+\begin{equation}
+\frac{\partial \alpha_j} {\partial m_k}=\beta_{j+1}^{1/2}W_k(q_jq_{j+1})-\beta_{j}^{1/2}W_k(q_{j-1}q_{j}), \mbox {  для  } 2j+1 \leq N
+\end{equation}
+\begin{equation}
+\frac{\partial \beta_j} {\partial m_k}=\beta_jW_k(q_j^2-q_{j-1}^2), \mbox{ для } 2j \leq N
+\end{equation}
+
+\subsection{Норма якобиана отображения $K_n$}
+
+Якобиан $K^{'}_n[2n\times 2n]$ имеет следующий вид:
+\begin{equation}
+K^{'}_n=
+\left(
+\begin{array}{ccccccccccccc}
+\displaystyle\frac{\partial \alpha_0} {\partial m_0} &
+\displaystyle\frac{\partial \alpha_1} {\partial m_0} & \cdots &
+\displaystyle\frac{\partial \alpha_{n-1}} {\partial m_0} &
+\displaystyle\frac{\partial \beta_0} {\partial m_0} &
+\displaystyle\frac{\partial \beta_1} {\partial m_0} & \cdots &
+\displaystyle\frac{\partial \beta_{n-1}} {\partial m_0} \\
+
+\displaystyle\frac{\partial \alpha_0} {\partial m_1} &
+\displaystyle\frac{\partial \alpha_1} {\partial m_1} & \cdots &
+\displaystyle\frac{\partial \alpha_{n-1}} {\partial m_1} &
+\displaystyle\frac{\partial \beta_0} {\partial m_1} &
+\displaystyle\frac{\partial \beta_1} {\partial m_1} & \cdots &
+\displaystyle\frac{\partial \beta_{n-1}} {\partial m_1} \\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \\
+\displaystyle\frac{\partial \alpha_0} {\partial m_{2n-1}} &
+\displaystyle\frac{\partial \alpha_1} {\partial m_{2n-1}} & \cdots &
+\displaystyle\frac{\partial \alpha_{n-1}} {\partial m_{2n-1}} &
+\displaystyle\frac{\partial \beta_0} {\partial m_{2n-1}} &
+\displaystyle\frac{\partial \beta_1} {\partial m_{2n-1}} & \cdots &
+\displaystyle\frac{\partial \beta_{n-1}} {\partial m_{2n-1}} \\
+\end{array}
+\right)
+\end{equation}
+
+\begin{eqnarray}
+\psi_{2j}(x)=\beta_j(q^2_j(x)-q^2_{j-1}(x)) \nonumber \\
+\psi_{2j+1}(x)=\beta_{j+1}^{1/2}q_j(x)q_{j+1}(x)-\beta_j^{1/2}q_{j-1}(x)q_{j}(x) \nonumber \\
+ j=0,\ldots,n-1 \nonumber
+\end{eqnarray}
+
+\begin{equation}
+K^{'}_n=\Psi=(\psi_{i,j})_{i,j=0,2n-1},\mbox{   } \psi_{i,j}=W_j(\psi_i)
+\end{equation}
+Введем следующие обозначения:
+\begin{eqnarray}
+w_{\infty}(\psi_j)=\sum\limits_{k=0}^{N} {\mid W_k(\psi_j) \mid} \nonumber \\
+w_{F}(\psi_j)=\sum\limits_{k=0}^{N} {W_k^2(\psi_j)} \nonumber
+\end{eqnarray}
+Нормы якобиана $K^{'}_n$ выражаются:
+\begin{equation}
+\parallel K^{'}_n \parallel _{\infty}=\parallel \Psi  \parallel _{\infty}=
+\max\limits_{0\leq j \leq 2n-1} w_{\infty}(\psi_j)
+\end{equation}
+\begin{equation}
+\parallel K^{'}_n \parallel _{F}=\parallel \Psi  \parallel _{F}=
+\sqrt{ \sum\limits_{j=0}^{2n-1}{w_F(\psi_j)} }
+\end{equation}
+\bf Лемма 2. \rm \\
+Для обычных моментов \\
+1. Если $\psi_j$ - многочлен с чередующимися по знаку элементами,
+то $ w_{\infty}(\psi_j)=\mid \psi(-1) \mid$ \\
+2. Если $\psi_j$ - многочлен только с четными (или только нечетными)
+степенями и чередующимся знаком, то $ w_{\infty}(\psi_j)=\mid \psi_j(i) \mid$ \\
+3. В общем случае $w_F$ может быть выражено как $w_F(\psi_j)=\frac{1}{2\pi}\int\limits_{0}^{2\pi}{\mid \psi_j(e^{i\phi}) \mid ^{2}d\phi}$
+

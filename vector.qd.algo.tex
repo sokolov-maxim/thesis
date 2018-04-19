@@ -1,0 +1,242 @@
+\subsection{Новая версия векторного алгоритма QD}
+\subsubsection{Основные определения}
+Для некоторого $p=nk+d$ доопределим  определитель Ганкеля
+(~\ref{H}). Пусть $H_n^{k,d} (H_n=H_n^{0,0}) $ - соответствующий
+определитель Ганкеля размерности $n \times n$:
+$$%\begin{equation}
+H_n^{k,d}= \left|
+\begin{array}{cccccccccccccccccccccc}
+s_k^{d+1} & \cdots & s_{k+n-1}^{d+1} \\
+\cdots & \cdots & \cdots \\
+\end{array}
+\right|
+$$%\end{equation}
+Обозначим как $Q_n^{k,d}$ семейство векторно ортогональных
+многочленов относительно функционалов
+$L^{\nu}=(L_1^{\nu},L_2^{\nu},\ldots,L_p^{\nu})$ определяемых \it
+сдвинутыми \rm моментами
+$$ L_j^{\nu}(z^n)=s_{n+\nu}^{(j)}$$
+Многочлены $Q_n^{k,d}$ имеют соответствующее выражение через
+определители Ганкеля $H_n^{p,d}$:
+\begin{equation}
+\label{Q_from_H}
+\begin{array}{cc}
+Q_n^{k,d}(z)=H_n^{k,d}(z)/H_n^{k,d}\\
+\left|\begin{array}{ccccc}
+s_{k}^{(d+1)} & s_{k+1}^{(d+1)} & \cdots & s_{k+n}^{(d+1)}\\
+\cdots & \cdots & \cdots & \cdots\\
+1               & z               & \cdots & z^n
+\end{array}\right|
+\times {\left|\begin{array}{cccc}
+s_{k}^{(d+1)} & s_{k+1}^{(d+1)} & \cdots & s_{k+n-1}^{(d+1)}\\
+\cdots & \cdots & \cdots & \cdots\\
+\cdots & \cdots & \cdots & \cdots\\
+\end{array}\right|}^{-1}
+\end{array}
+\end{equation}
+\subsubsection{Вывод алгоритма}
+%====================================================
+% Theorem 1
+%=====================================================
+\begin{teor}
+Для некоторго $\nu=pk+d$ имеют место следующие соотношения
+\begin{eqnarray}
+\label{QDExAlpha} Q_n^{k,d+1}=Q_n^{k,d}-\alpha_n^{\nu}
+Q_{n-1}^{k,d+1} \mbox{, где }
+\alpha_n^{\nu}=\frac{H^{k,d}_{n+1}H_{n-1}^{k,d+1} }{H_{n}^{k,d}
+H_{n}^{k,d+1}}
+\end{eqnarray}
+\begin{equation}
+\label{QDExBeta} Q_{n+1}^{k,d} =zQ_n^{k+1,d}-\beta_{n+1}^{{\nu}}
+Q_n^{k,d} \mbox{, где } \beta_{n+1}^{\nu}
+=\frac{H^{k+1,d}_{n+1}H_{n}^{k,d} }{H_{n+1}^{k,d} H_{n}^{k+1,d}}
+\end{equation}
+\begin{equation}
+\label{QDExGamma} Q_{n+1}^{k,d} =zQ_n^{k+1,d+1}-\gamma_{n}^{\nu}
+Q_n^{k,d} \mbox{, где } \gamma_{n}^{\nu}=
+\frac{H^{k+1,d}_{n+1}H_{n}^{k,d+1} }{H_{n+1}^{k,d}
+H_{n}^{k+1,d+1}}
+\end{equation}
+\end{teor}
+%========================================
+\noindent{\bf Доказательство :} \\
+%We have the following Sylvester's identity
+%\begin{equation}
+%H_{n}^{k+1,d+1}H_{n+2}^{k,d} = H_{n+1}^{k,d}
+%H_{n+1}^{k+1,d+1}-H_{n+1}^{k+1,d}H_{n+1}^{k,d+1}
+%\end{equation}
+1. Раскладывая определитель $H_{n+1}^{k,d}(z)$ по минору
+$H_{n}^{k+1,d}$ в соответствии с тождеством Сильвестра имеем:
+\begin{eqnarray}
+H_{n}^{k+1,d}\cdot H_{n+1}^{k,d} (z)=zH_{n+1}^{k,d}  \cdot
+H_{n}^{k+1,d}(z) -H^{k+1,d}_{n+1} \cdot H_{n}^{k,d}  (z) \nonumber
+\end{eqnarray}
+Поделив на $H_{n}^{k+1,d}\cdot H_{n+1}^{k,d} $ получаем
+соотношение (~\ref{QDExBeta})
+\begin{eqnarray}
+Q_{n+1}^{k,d} (z)=zQ_{n}^{k+1,d}(z)
+-\frac{H^{k+1,d}_{n+1}H_{n}^{k,d} }{H_{n+1}^{k,d} H_{n}^{k+1,d}}
+Q_{n}^{k,d}  (z) \nonumber
+\end{eqnarray}
+2. Раскладывая определитель $H_{n+1}^{k,d}(z)$ по минору
+$H_{n}^{k+1,d+1}$ в соответствии с тождеством Сильвестра имеем:
+\begin{eqnarray}
+H_{n}^{k+1,d+1}\cdot H_{n+1}^{k,d} (z)=zH_{n+1}^{k,d}  \cdot
+H_{n}^{k+1,d+1}(z) -H^{k+1,d}_{n+1} \cdot H_{n}^{k,d+1}  (z)
+\nonumber
+\end{eqnarray}
+Поделив на $H_{n}^{k+1,d+1}\cdot H_{n+1}^{k,d}$ получаем
+соотношение (~\ref{QDExGamma})
+\begin{eqnarray}
+Q_{n+1}^{k,d} (z)=zQ_{n}^{k+1,d+1}(z)
+-\frac{H^{k+1,d}_{n+1}H_{n}^{k,d+1} }{H_{n+1}^{k,d}
+H_{n}^{k+1,d+1}} Q_{n}^{k,d+1}  (z) \nonumber
+\end{eqnarray}
+3. Комбинируя (~\ref{QDExBeta}) и (~\ref{QDExGamma})
+\begin{eqnarray}
+Q_{n}^{k,d+1} (z)=zQ_{n-1}^{k+1,d+1}(z)
+-\beta_{n}^{{\nu+1}}
+Q_{n-1}^{k,d+1}  (z) \nonumber \\
+Q_{n}^{k,d} (z)=zQ_{n-1}^{k+1,d+1}(z) - \gamma_{n}^{\nu}
+Q_{n-1}^{k,d+1}  (z) \nonumber
+\end{eqnarray}
+получаем соотношение (~\ref{QDExAlpha})
+\begin{eqnarray}
+Q_n^{k,d+1}(z)=Q_n^{k,d}(z)-\frac{H^{k,d}_{n+1}H_{n-1}^{k,d+1}
+}{H_{n}^{k,d} H_{n}^{k,d+1}} Q_{n-1}^{k,d+1}(z) \nonumber
+\end{eqnarray}
+Третье соотношение является зависимым от двух предыдущих, и как
+следствие верно следующее соотношение: $
+\alpha_n^{\nu}=\beta_n^{\nu+1}-\gamma_{n-1}^{\nu} $ \\
+Коэффициенты $\alpha_n^{\nu}, \beta_n^{\nu}, \gamma_n^{\nu}$
+образуют \it векторную QD таблицу \rm следующего вида:
+\begin{equation}
+\begin{array}{ccccccccccccccccc}
+\beta_1^0 & \alpha_1^0 & \beta_2^0 & \alpha_2^0 & \beta_3^0 & \cdots \\
+\beta_1^1 & \alpha_1^1 & \beta_2^1 & \alpha_2^1 & \beta_3^1 & \cdots \\
+\beta_1^2 & \alpha_1^2 & \beta_2^2 & \alpha_2^2 & \beta_3^2 & \cdots \\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots  \\
+\end{array}
+\end{equation}
+
+%=========================================
+%  Theorem 2
+%=========================================
+\begin{teor}
+Новая версия QD алгоритма выражается следующими соотношениями
+коэффициентов $\alpha$ и $\beta$ при $\nu=pk+d$:
+\begin{equation}
+\label{QDExRec} \beta_{n+1}^{\nu+1}+\alpha_n^{\nu+p} =
+\beta_{n+1}^{\nu}+\alpha_{n+1}^{\nu}
+\end{equation}
+\begin{equation}
+\beta_{n}^{\nu+1}\alpha_n^{\nu+p} =
+\beta_{n+1}^{\nu}\alpha_{n}^{\nu}
+\end{equation}
+при начальных условиях:
+\begin{equation}
+\beta_1^{\nu} = s^{d+1}_{k+1}/s_{k}^{d+1},\mbox{   }
+\alpha_0^{\nu}=0
+\end{equation}
+\end{teor}
+\bf Доказательство: \rm \\
+Используя (~\ref{QDExBeta}) и (~\ref{QDExAlpha}) мы получаем:
+$$%\begin{equation}
+\begin{array}{lllllllll}
+Q_{n+1}^{k,d} & =xQ_n^{k+1,d}-\beta_{n+1}^{{\nu}} Q_n^{k,d} \\
+&
+=x(Q_n^{k+1,d+1}+\alpha_n^{\nu+p}Q_{n-1}^{k+1,d+1})-\beta_{n+1}^{{\nu}}
+(Q_n^{k,d+1}+\alpha_n^{\nu}Q_{n-1}^{k,d+1}) \\
+&
+=(Q_{n+1}^{k,d+1}+\beta_{n+1}^{\nu+1}Q_n^{k,d+1})+\alpha_n^{\nu+p}(Q_n^{k,d+1}+\beta_n^{\nu+1}Q_{n-1}^{k,d+1})-\beta_{n+1}^{{\nu}}
+(Q_n^{k,d+1}+\alpha_n^{\nu}Q_{n-1}^{k,d+1}) \\
+& =
+Q_{n+1}^{k,d+1}+(\beta_{n+1}^{\nu+1}+\alpha_{n}^{\nu+p}-\beta_{n+1}^{\nu})Q_n^{k,d+1}+(\alpha_n^{\nu+p}\beta_{n}^{\nu+1}-\alpha_n^{\nu}\beta_{n+1}^{\nu})Q_{n-1}^{k,d+1}
+\end{array}
+$$%\end{equation}
+Сравнивая с $$
+Q_{n+1}^{k,d+1}=Q_{n+1}^{k,d}-\alpha_{n+1}^{\nu} Q_{n}^{k,d+1}
+$$
+получаем соотношения теоремы. \\
+\begin{teor} Вектор  $\overrightarrow{f}$ формальных степенных рядов
+допускает разложение в векторную непрерывную дробь тогда, и только
+тогда, когда определители Ганкеля $H_n^{k,d}$ не равны нулю
+\end{teor}
+Критерий эквивалентен условию, что $(p+1)$ систем формальных
+степенных рядов определяемые сдвинутыми моментами
+$\overrightarrow{f}^{\nu}=(f_{\nu},f_{\nu+1},...,f_{\nu+p-1}),
+\mbox{   } \nu=1,...,p+1$ регулярны.
+
+\begin{teor}
+Рекурретные коэффициенты векторных ортогональных многочленов $Q_n
+= Q_n^{0,0}$
+$$%\begin{equation}
+Q_{n+1}(z)=(z-a_{n,n})Q_n(z)-a_{n,n-1}Q_{n-1}(z)-\ldots-a_{n,n-p}Q_{n-p}(z)
+$$%\end{equation}
+могут быть вычислены из элементов векторной QD
+таблицы $\alpha, \beta$ следующим образом:
+%
+\begin{eqnarray}
+a_{n,n}=\sum\limits_{i_1=-1}^{p-1}{u_{n,n-i_1}} \nonumber\\
+a_{n,n-1}=\sum\limits_{i_1=0}^{p-1}{u_{n,n-i_1}}
+\sum\limits_{i_2=0}^{i_1}{u_{n-1,n-i_2}} \nonumber\\
+a_{n,n-2}=\sum\limits_{i_1=1}^{p-1}{u_{n,n-i_1}^{\nu }}
+\sum\limits_{i_2=1}^{i_1}{u_{n-1,n-i_2}^{\nu }}
+\sum\limits_{i_3=1}^{i_2}{u_{n-2,n-i_3}^{\nu }} \nonumber \\
+\cdots \nonumber\\
+a_{n,n-p}={u_{n,n-p+1}}{u_{n-1,n-p+1}}\ldots {u_{n-p,n-p+1}}
+\nonumber
+\end{eqnarray}
+%
+где
+\begin{equation}
+\left\{
+\begin{array}{llllllll}
+u_{n,n+1} = \beta_{n+1}^{0} \\ \\
+u_{n,n-j} = \alpha_{n}^{j}, j=0,\ldots,p-1
+\end{array}
+\right.
+\end{equation}
+\end{teor}
+
+\noindent{\bf Доказательство: }
+Для $p=1$ случая $$Q_{n+1}(z)=(z-a_{n,n})Q_n(z)-a_{n,n-1}Q_{n-1}(z)$$\\
+Соотношение $Q_n^{k,d+1}=Q_n^{k,d}-\alpha_n^{\nu} Q_{n-1}^{k,d+1}$
+можно записать в виде $$ Q_n^{k+1,d}=Q_n^{k,d}-\alpha_n^{\nu}
+Q_{n-1}^{k+1,d}$$ Стартуя с  $Q_{n+1}^{k,d} =
+xQ_n^{k+1,d}-\beta_{n+1}^{{\nu}} Q_n^{k,d}$ можно записать
+\begin{eqnarray*}
+Q_{n+1}^{k,d} & = & x(Q_n^{k,d}-\alpha_n^{\nu}
+Q_{n-1}^{k+1,d})-\beta_{n+1}^{{\nu}}
+Q_n^{k,d} \nonumber \\
+& = & (x-\beta_{n+1}^{{\nu}})Q_n^{k,d}-\alpha_n^{\nu}
+xQ_{n-1}^{k+1,d} \nonumber \\
+& = & (x-\beta_{n+1}^{{\nu}})Q_n^{k,d}-\alpha_n^{\nu}
+(Q_n^{k,d}+\beta_n^{\nu}Q_{n-1}^{k,d})
+\end{eqnarray*}
+В итоге получаем
+\begin{eqnarray*}
+Q_{n+1}^{k,d}= (x-(\beta_{n+1}^{{\nu}}+\alpha_n^{\nu}))Q_n^{k,d}-
+\alpha_n^{\nu}\beta_n^{\nu}Q_{n-1}^{k,d}) \\
+a_{n,n} =\beta_{n+1}^{0}+\alpha_n^{0}, \mbox{    } a_{n,n-1} =
+\alpha_n^{0}\beta_n^{0}
+\end{eqnarray*}
+Для $p=2$ случая $$Q_{n+1}(z)=(z-a_{n,n})Q_n(z)-a_{n,n-1}Q_{n-1}(z)-a_{n,n-2}Q_{n-2}(z)$$\\
+имеем следующее
+\begin{equation}
+Q_{n+1}^{k,d} =
+(x-(\beta_{n+1}^{{\nu}}+\alpha_n^{\nu+1}+\alpha_n^{\nu}))Q_n^{k,d}-\nonumber \\
+-(\alpha_n^{\nu+1}\beta_{n}^{{\nu}}+\alpha_n^{\nu}(\beta_{n}^{{\nu}}+\alpha_{n-1}^{\nu+1}))Q_{n-1}^{k,d}-
+\alpha_n^{\nu}\alpha_{n-1}^{\nu+1}\beta_{n-1}^{{\nu}}
+Q_{n-2}^{k,d} \nonumber
+\end{equation}
+Откуда
+\begin{eqnarray*}
+ a_{n,n}
+=\beta_{n+1}^{{\nu}}+\alpha_n^{\nu+1}+\alpha_n^{\nu} \nonumber
+\\ a_{n,n-1} =
+\alpha_n^{\nu+1}\beta_{n}^{{\nu}}+\alpha_n^{\nu}(\beta_{n}^{{\nu}}+\alpha_{n-1}^{\nu+1})
+\nonumber \\ a_{n,n-2} =
+\alpha_n^{\nu}\alpha_{n-1}^{\nu+1}\beta_{n-1}^{{\nu}}
+\end{eqnarray*}
+Далее по индукции получаем соотношение теоремы. \\

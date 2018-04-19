@@ -1,0 +1,73 @@
+\section{Процедура Стилтъеса} В качестве одного из решений
+обратной спектральной задачи рассмотрим процедуру
+Стилтъеса.
+\begin{teor}
+\it 
+Для некоторого набора векторных ортогональных многочленов, удовлетворяющих
+рекуррентному соотношению вида:
+\begin{equation}
+\label{StieltO}
+Q_{n+1}(z)=(z-a_{n,n})Q_n(z)-\ldots-a_{n,n-p}Q_{n-p}(z)
+\end{equation}
+$$
+Q_{-p}(z)=Q_{-1}(z)=0,  Q_0(z)=1,
+$$
+где индекс $n=pk+d$ нормален, т.е. выбирается следующим образом
+$$\overrightarrow{n}=(\underbrace{k+1,\ldots,k+1}_{d},\underbrace{k,\ldots,k}_{p-d}),
+k\in{\mbox{Z}}_{+},n=pk+d$$ 
+справедливы следующие соотношения:
+\begin{equation}
+\label{StieltA}
+\begin{array} {cccccccccccccc}
+a_{n,n-p} = \displaystyle\frac{L_{d+1}(Q_n,zQ_{\left[\frac{n-p}{p}\right]})}{L_{d+1}(Q_{n-p},Q_{\left[\frac{n-p}{p}\right]})} \\
+%a_{n,n-p+1} = \displaystyle\frac{L_{d+2}(Q_n,zQ_{n-p}) - a_{n,n-p}L_{d+2}(Q_{n-p},Q_{n-p})}{L_{d+2}(Q_{n-p+1},Q_{n-p})} \\
+%a_{n,n-p+2} = \displaystyle\frac{L_{d+3}(Q_n,zQ_{n-p}) - a_{n,n-p}L_{d+3}(Q_{n-p},Q_{n-p}) - a_{n,n-p+1} L_{d+3}(Q_{n-p+1},Q_{n-p})}{L_{d+3}(Q_{n-p+2},Q_{n-p})} \\
+\ldots \\
+a_{n,n-(d+1)} = \displaystyle\frac{L_{p}(Q_n,zQ_{\left[\frac{n-(d+1)}{p}\right]}) - \displaystyle\sum\limits_{i=d+2}^{p} {a_{n,n-i}L_p(Q_{n-i},Q_{\left[\frac{n-(d+1)}{p}\right]})}}{L_{p}(Q_{n-(d+1)},Q_{\left[\frac{n-(d+1)}{p}\right]})} \\
+a_{n,n-d} = \displaystyle\frac{L_{1}(Q_n,zQ_{\left[\frac{n-d}{p}\right]}) - \displaystyle\sum\limits_{i=d+1}^{p} {a_{n,n-i}L_1(Q_{n-i},Q_{\left[\frac{n-d}{p}\right]})}}{L_{1}(Q_{n-d},Q_{\left[\frac{n-d}{p}\right]})} \\
+\ldots \\
+a_{n,n} = \displaystyle\frac{L_{d+1}(Q_n,zQ_{\left[\frac{n}{p}\right]}) - \displaystyle\sum\limits_{i=1}^{p} {a_{n,n-i}L_{d+1}(Q_{n-i},Q_{\left[\frac{n}{p}\right]})}}{L_{d+1}(Q_{n},Q_{\left[\frac{n}{p}\right]})}
+\end{array}
+\end{equation}
+\end{teor}
+\bf Доказательство: \rm \\
+Запишем соотношение векторных ортогональных многочленов в общем виде с принадлежащими индексами 
+$$\underbrace{Q_{n+1}}_{(\stackrel{1}{k+1},\ldots,\stackrel{d+1}{k+1},\stackrel{d+2}{k,}\ldots,\stackrel{p}{k})}=
+(z - a_{n,n})\underbrace{Q_n}_{(\stackrel{1}{k+1},\ldots,\stackrel{d}{k+1},\stackrel{d+1}{k,}\ldots,\stackrel{p}{k})} - 
+\underbrace{a_{n,n-1}Q_{n-1}}_{(\stackrel{1}{k+1},\ldots,\stackrel{d-1}{k+1},\stackrel{d}{k,}\ldots,\stackrel{p}{k})}-\ldots-
+\underbrace{a_{n,n-d}Q_{n-d}}_{(\stackrel{1}{k},\ldots,\stackrel{p}{k})}-\ldots-
+\underbrace{a_{n,n-p}Q_{n-p}}_{(\stackrel{1}{k},\ldots,\stackrel{d}{k},\stackrel{d+1}{k-1,}\ldots,\stackrel{p}{k-1})}$$ 
+Применим последовательно:
+\begin{equation}
+\begin{array} {cccccccccccccc}
+L_{d+1} (\cdot, Q_{\left[\frac{n-p}{p}\right]}) \\
+\ldots \\
+L_p(\cdot, Q_{\left[\frac{n-(d+1)}{p}\right]}) \\
+L_1(\cdot, Q_{\left[\frac{n-d}{p}\right]}) \\
+\ldots \\
+L_{d+1} (\cdot, Q_{\left[\frac{n}{p}\right]})
+\end{array}
+\end{equation}
+В силу ортогональности многочленов 
+\begin{equation}
+\label{OrthogonalCondition}
+\int_{\Delta_j}{Q_n(x)x^kd\mu_j(x)}=0,\mbox{
+}k=0,1,\ldots,n_j-1,j=1,2,\ldots,p
+\end{equation}
+и нормальности индекса $\deg  Q_n=n$ получим требуемые выражения для коэффициентов (~\ref{StieltA}). \\ \\
+\bf Процедура \rm \\
+Основная идея процедуры Стилтъеса - вычисление коэффициентов $a_{i,j}$ рекуррентного соотношения (~\ref{StieltO}) напрямую через вычисление функционалов $L_j(Q_i,Q_k)$. \\
+Функционалы в свою очередь вычисляются через квадратуру Гаусса (~\ref{Quadrature}).
+\begin{equation}
+L_j(Q_i,Q_k)=\sum\limits_{t=0}^{n-1}{Q_i(\lambda_{t})Q_k(\lambda_{t})r_{t}^{(j)}}
+\end{equation}
+где $n$ количество узлов квадратуры, $\lambda_t$ - узлы и $r_{t}$
+- веса квадратуры.\\
+Процедура стартует со следующих начальные условий:
+$$Q_0=1, a_{0,0}=\frac{\displaystyle{L_1(Q_0,zQ_0)}}{\displaystyle{L_1(O_0,Q_0)}}$$ \\
+Далее последовательно для $i=1,\ldots,n-1$ \\
+1. Вычислить многочлен $Q_i$ из реккурентного соотношения (~\ref{StieltO}), пользуясь вычисленными многочленами и коэффициентами с предыдущего шага: 
+$$Q_{i-1}, \ldots, Q_{i-1-p}; \mbox{    } a_{i-1,i-1-p}, \ldots,a_{i-1, i-1-p}$$  \\ 
+2. Вычислить поcледовательно коэффициенты 
+$$a_{i,i-p}, \ldots, a_{i,i}$$ используя выражения (~\ref{StieltA}).
+

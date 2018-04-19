@@ -1,0 +1,166 @@
+\subsubsection{Прогрессивная форма новой версии векторного QD алгоритма}
+
+Для решения \it прямой спектральной задача, \rm которая состоит в
+вычислении моментов $\{s_n\}$ по заданной матрице оператора.
+используется \it прогрессивная форма. \rm \\
+Прогрессивная форма векторного QD алгоритма отличается тем, что
+отправной точкой для вычисления QD таблицы используется верхняя
+строчка и вычисление идет сверху вниз. \\ От начальных условий в
+виде
+
+\begin{equation}
+\begin{array}{ccccccccccccccccc}
+\beta_1^0 & \alpha_1^0 & \beta_2^0 & \alpha_2^0 & \beta_3^0 &
+\ldots \\
+ & \cdots &  & \cdots &  &
+\ldots \\
+ & \alpha_1^{p-1} &  & \alpha_2^{p-1} &  &
+\ldots
+\end{array}
+\end{equation}
+Последовательно вычисляя нижележащие строчки $\nu =0, 1, \ldots $
+$$\beta_{n+1}^{\nu+1}=\beta_{n+1}^{\nu}+\alpha_{n+1}^{\nu}-\alpha_{n}^{\nu+p}$$
+$$\alpha_{n}^{\nu+p}=\displaystyle\frac{\beta_{n+1}^{\nu}\alpha_{n}^{\nu}} {\beta_{n}^{\nu+1}}$$
+получаем в качестве результата первый столбец QD таблицы, который
+представляет из себя соотношения соответствующих моментов. В
+данном случае прогрессивная форма является решением прямой
+спектральной задачи. \\
+Практическое применение имеет прогрессивная
+форма только в случае "разреженной" матрицы оператора, когда
+начальные условия (верхнюю строчку) легко определить из
+коэффициентов рекуррентных соотношений.
+
+
+
+\subsubsection{Пример векторного алгоритма QD}
+
+\subsubsection{ Пример для $p=1$ } Приведем пример QD таблицы для
+следующего степенного ряда
+$$S(z) = \int\limits_{0}^{\infty}{ \frac{x^{\gamma}e^{-x} dx } {z-x}}=\frac{s_0}{z}+\frac{s_1}{z^2}+\frac{s_2}{z^3}+\ldots,\mbox{   }s_k = \int\limits_{0}^{\infty}{x^{\gamma+k} e^{-x}
+dx}=\Gamma(k+\gamma+1)$$ Начальные условия выражаются следующими
+соотношениями
+$$
+\alpha_0^k = 0, \mbox{   }
+\beta_1^k=\frac{s_{k+1}}{s_k}=\frac{\Gamma(k+\gamma+2)}{\Gamma(k+\gamma+1)}=k+\gamma+1
+$$
+Далее последовательно вычисляя столбцы QD таблицы справа налево,
+по формулам
+\begin{eqnarray*} \alpha_{n+1}^{\nu} = \alpha_n^{\nu+1}+\beta_{n+1}^{\nu+1}-\beta_{n+1}^{\nu}, n=0,1,\ldots \nonumber\\
+\beta_{n+1}^{\nu} =
+\frac{\alpha_n^{\nu+1}}{\alpha_n^{\nu}}\beta_{n}^{\nu+1},
+n=1,2,\ldots
+\end{eqnarray*}
+получаем следующую QD таблицу
+$$%\begin{equation}
+\begin{array}{lllllllllllllll}
+\beta_1^{\nu} & \alpha_1^{\nu} & \beta_2^{\nu} & \alpha_2^{\nu} & \beta_3^{\nu} & \alpha_3^{\nu} & \beta_4^{\nu} & \cdots \\
+\gamma+1 & 1 & \gamma+2 & 2 & \gamma+3 & 3 & \gamma+4 & \cdots \\
+\gamma+2 & 1 & \gamma+3 & 2 & \gamma+4 & 3 & \gamma+5 & \cdots \\
+\gamma+3 & 1 & \gamma+4 & 2 & \gamma+5 & 3 & \gamma+6 & \cdots \\
+\gamma+4 & 1 & \gamma+5 & 2 & \gamma+6 & 3 & \gamma+7 & \cdots \\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\
+\end{array}
+$$%\end{equation}
+Получаем точное выражение для коэффициентов QD
+таблицы.
+$$ \beta_n^{\nu} = n+\gamma+\nu, \mbox{   } \alpha_n^{\nu} = n$$
+Строки QD таблицы в данном случае содержат коэффициенты
+разложений в непрерывную дробь Стилтъеса для семейства степенных
+рядов
+$$ S^{(j)}(z) = \int\limits_{0}^{\infty}{ \frac{x^{\gamma+j}e^{-x} dx } {z-x}},j=0,1,2,\ldots $$
+Соответствующее разложение будет иметь вид:
+$$ S^{(j)}(z)=\frac{s_j|}{|z}-\frac{\beta_1^j|}{|1}-\frac{\alpha_1^j|}{|z}-\frac{\beta_2^j|}{|1}-\frac{\alpha_2^j|}{|z}- \ldots $$
+
+\subsubsection{Пример для $p=2$} Приведем пример QD таблицы для
+следующей системы степенных рядов ${\cal S}_{\nu}=(S_1,S_2)$, где
+$$ S_1(z) = \int\limits_{0}^{\infty} {\frac{x^{\gamma_1} e^{-x}dx} {z-x} }, \mbox{   }
+S_2(z) = \int\limits_{0}^{\infty} {\frac{x^{\gamma_2} e^{-x}dx}
+{z-x} } $$ Соответствующие моменты равны
+$$ s_k^{(1)} = \Gamma(\gamma_1+k+1), \mbox{   } s_k^{(2)} = \Gamma(\gamma_2+k+1) $$
+Начальные условия соответственно
+\begin{eqnarray}
+\beta_{1}^{\nu}=\left\{
+\begin{array}{llllllll}
+\displaystyle\frac{s_{k+1}^{(1)}} {s_{k}^{(1)}}
+=\displaystyle\frac {\Gamma(\gamma_1+k+2)}
+{\Gamma(\gamma_1+k+1)}=k+\gamma_1+1
+, \nu=2k-1 \\
+\displaystyle\frac{s_{k+1}^{(2)}}{s_{k}^{(2)}}=\displaystyle\frac{\Gamma(\gamma_2+k+2)}{\Gamma(\gamma_2+k+1)}=k+\gamma_2+1
+, \nu=2k \\
+\end{array}
+\right. \nonumber
+\end{eqnarray}
+Далее построим  векторную QD таблицу по формулам:
+\begin{eqnarray*}
+\alpha_{n+1}^{\nu} = \alpha_n^{\nu+2}+
+\beta_{n+1}^{\nu+1}-\beta_{n+1}^{\nu},\mbox{   }n=0,1,\ldots \nonumber \\
+\beta_{n+1}^{\nu}= \frac{\alpha_n^{\nu+2}} {\alpha_{n}^{\nu}}
+\beta_{n}^{\nu+1},\mbox{   }n=1,2,\ldots
+\end{eqnarray*}
+Получаем следующую таблицу
+$$%\begin{equation}
+\begin{array}{lllllllllllllllllllll}
+\beta_1^{\nu}    & \alpha_1^{\nu}       & \alpha_1^{\nu+1}     & \beta_2^{\nu} & \alpha_2^{\nu} & \alpha_2^{\nu+1} & \beta_3^{\nu} & \alpha_3^{\nu} & \cdots \\
+\gamma_1+1 & \gamma_2-\gamma_1   & \gamma_1-\gamma_2+1  & \gamma_2+1 & 1 & 1 & \gamma_1+2 & \gamma_2-\gamma_1+1 & \cdots \\
+\gamma_2+1 & \gamma_1-\gamma_2+1 & \gamma_2-\gamma_1    & \gamma_1+2 & 1 & 1 & \gamma_2+2 & \gamma_1-\gamma_2+2 & \cdots \\
+\gamma_1+2 & \gamma_2-\gamma_1   & \gamma_1-\gamma_2+1  & \gamma_2+2 & 1 & 1 & \gamma_1+3 & \gamma_2-\gamma_1+1 & \cdots \\
+\gamma_2+2 & \gamma_1-\gamma_2+1 & \gamma_2-\gamma_1    & \gamma_1+3 & 1 & 1 & \gamma_2+3 & \gamma_1-\gamma_2+2 & \cdots \\
+\gamma_1+3 & \gamma_2-\gamma_1   & \gamma_1-\gamma_2+1  & \gamma_2+3 & 1 & 1 & \gamma_1+4 & \gamma_2-\gamma_1+1 & \cdots \\
+\gamma_2+3 & \gamma_1-\gamma_2+1 & \gamma_2-\gamma_1    & \gamma_1+4 & 1 & 1 & \gamma_2+4 & \gamma_1-\gamma_2+2 & \cdots \\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\
+\end{array}
+$$%\end{equation}
+Общее выражение для элементов векторной QD
+таблицы:
+\begin{eqnarray*}
+\displaystyle\beta_n^{\nu}= \gamma_{d+1}+k, \mbox{  где  } n+\nu+1=pk+d \nonumber\\
+\displaystyle\alpha^{pk_1+d_1}_{pk_2+d_2} =
+\gamma_{p-d_1}-\gamma_{d_1+1}+d_2+k_2 \nonumber
+\end{eqnarray*}
+
+
+\subsubsection{Пример прогрессивной формы для $p=2$} Приведем
+пример прогрессивной формы векторного QD алгоритма для матрицы
+$$%\begin{equation}
+A=\left(
+\begin{array}{ccccccccccccc}
+0 & 1 & 0 & 0 & 0 & \cdots \\
+0 & 0 & 1 & 0 & 0 & \cdots \\
+1 & 0 & 0 & 1 & 0 & \cdots \\
+0 & 1 & 0 & 0 & 1 & \cdots \\
+0 & 0 & 1 & 0 & 0 & \cdots \\
+\cdots & \cdots  & \cdots & \cdots & \cdots & \cdots
+\end{array}
+\right)
+$$%\end{equation}
+Начальные условия - верхние строчки QD таблицы
+$$%\begin{equation}
+\begin{array}{ccccccccccccccccc}
+\beta_1^{\nu} & \alpha_1^{\nu} & \beta_2^{nu} & \alpha_2^{\nu} & \beta_3 & \cdots \\
+1 & 1 & 1 & 1 & 1 & \cdots \\
+ & 1 &  & 1 &  & \cdots \\
+\end{array}
+$$%\end{equation}
+Далее вычисляем нижние строчки по формулам
+$$\beta_{n+1}^{\nu+1}=\beta_{n+1}^{\nu}+\alpha_{n+1}^{\nu}-\alpha_{n}^{\nu+2}$$
+$$\alpha_{n}^{\nu+2}=\displaystyle\frac{\beta_{n+1}^{\nu}\alpha_{n}^{\nu}} {\beta_{n}^{\nu+1}}$$
+В результате получаем следующую QD таблицу (точная арифметика)
+$$%\begin{equation}
+\begin{array}{ccccccccccccccccccccccccccccccccccccccccccccccc}
+\beta_1^{\nu} & \alpha_1^{\nu} & \alpha_1^{\nu+1} & \beta_2^{\nu} & \alpha_2^{\nu} & \alpha_2^{\nu+1} & \beta_3^{\nu} & \cdots \\
+ 1 & 1 & 1 & 1 & 1 & 1 & 1 & \cdots \\
+ 2 & 1 & 1/2 & 3/2 & 1 & 2/3 & 4/3  & \cdots \\
+ 3 & 1/2 & 1/2 & 2 & 2/3 & 2/3 & 5/3  & \cdots \\
+ 7/2 & 1/2 & 2/7 & 50/21 & 2/3 & 7/15 & 39/20  & \cdots \\
+ 4 & 2/7 & 25/84 & 11/4 & 7/15 & 26/55 & 49/22  & \cdots \\
+ 30/7 & 25/84 & 11/60 & 91/30 & 26/55 & 49/143 & 32/13  & \cdots \\
+ 55/12 & 11/60 & 13/66 & 182/55 & 49/143 & 32/91 & 1224/455  & \cdots \\
+ 143/30 & 13/66 & 7/55 & 504/143 & 32/91 & 17/65 & 323/112  & \cdots \\
+ 273/55 & 7/55 & 20/143 & 340/91 & 17/65 & 19/70 & 209/68  & \cdots \\
+ 56/11 & 20/143 & 17/182 & 3553/910 & 19/70 & 7/34 & 55/17  & \cdots \\
+ 68/13 & 17/182 & 19/182 & 57/14 & 7/34 & 11/51 & 3289/969  &
+\cdots \\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots &
+\cdots \\
+\end{array}
+$$%\end{equation}
