@@ -1,0 +1,63 @@
+\select@language {russian}
+\contentsline {chapter}{\numberline {1}Обратная спектральная задача. Метод модифицированных моментов.}{4}
+\contentsline {subsection}{\numberline {1.0.1}Системы Стилтьеса}{6}
+\contentsline {subsection}{\numberline {1.0.2}Система Стилтьеса $p=2, a_j=1$}{7}
+\contentsline {subsection}{\numberline {1.0.3}Системы Никишина}{10}
+\contentsline {subsection}{\numberline {1.0.4}Системы Никишина $p=2$}{11}
+\contentsline {subsection}{\numberline {1.0.5}Система Никишина $\Delta _1=[-1,0], \Delta _2 =[0,1]$}{12}
+\contentsline {subsection}{\numberline {1.0.6}Система Никишина $\Delta _1=[-1/2,0], \Delta _2 =[z_a,1]$}{15}
+\contentsline {subsection}{\numberline {1.0.7}Система Никишина $\Delta _1=[-3/4,0], \Delta _2 =[z_a,1]$}{19}
+\contentsline {subsection}{\numberline {1.0.8}Системы Анжелеско}{23}
+\contentsline {subsection}{\numberline {1.0.9}Системы Чебышева $p=2$ на $\Delta _1=[-1,0], \Delta _2 =[0,1]$}{24}
+\contentsline {subsubsection}{Модифицированный алгоритм Чебышева. Полиномиальные возмущения.}{24}
+\contentsline {chapter}{\numberline {2}Обратная спектральная задача. Процедура Стильтеса.}{29}
+\contentsline {subsection}{\numberline {2.0.10}Система Чебышева $p=2, \Delta _1=[-1,0], \Delta _2=[0,1]$. Возмущения точками масс.}{30}
+\contentsline {subsubsection}{Квадратура Чебышева}{30}
+\contentsline {subsubsection}{Система Чебышева $p=2, \Delta _1=[-1,-0.5], \Delta _2=[0.5,1]$. Возмущения точками масс.}{32}
+\contentsline {subsection}{\numberline {2.0.11}Процедура Стильтеса для $\Delta _1=[-a,0], \Delta _2=[0,1]$}{32}
+\contentsline {subsection}{\numberline {2.0.12}Процедура Стильтеса для $\Delta _1=[-1,a], \Delta _2=[-a,1]$}{33}
+\contentsline {subsection}{\numberline {2.0.13}Системы Чебышева и Лежандра $p=2$ на $\Delta _1=[-1,0], \Delta _2 =[0,1]$}{39}
+\contentsline {subsection}{\numberline {2.0.14}Системы Анжелеско $p=2$}{40}
+\contentsline {subsection}{\numberline {2.0.15}Система Анжелеско $\Delta _1=[-1,0], \Delta _2 =[0,1]$}{41}
+\contentsline {subsection}{\numberline {2.0.16}Система Анжелеско $\Delta _1=[-1/2,0], \Delta _2 =[z_a,1]$}{46}
+\contentsline {subsection}{\numberline {2.0.17}Система Анжелеско $\Delta _1=[-3/4,0], \Delta _2 =[z_a,1]$}{50}
+\contentsline {subsection}{\numberline {2.0.18}Системы Пинейро}{54}
+\contentsline {subsection}{\numberline {2.0.19}Системы Пинейро $p=2$}{55}
+\contentsline {subsection}{\numberline {2.0.20}Система Пинейро $\Delta =[0,1], \alpha _0 =0, \alpha _1=0, \alpha _2=1/2$}{56}
+\contentsline {chapter}{\numberline {3}Решение систем на базе матрицы Хессенберга. Метод модифицированных моментов.}{63}
+\contentsline {subsection}{\numberline {3.0.21}Система Богоявленского}{63}
+\contentsline {subsection}{\numberline {3.0.22}Векторная система Тода I-го типа}{65}
+\contentsline {subsubsection}{Система Никишина}{65}
+\contentsline {subsubsection}{Система Никишина с возмущением $b_k$ диагонали $\displaystyle {\begingroup 1\endgroup \over k^2}$ весом}{66}
+\contentsline {subsubsection}{Система Анжелеско}{68}
+\contentsline {subsubsection}{Система Анжелеско с возмущением $b_k$ диагонали $\displaystyle {\begingroup 1\endgroup \over k^2}$ весом}{69}
+\contentsline {subsection}{\numberline {3.0.23}Векторная система Тода II-го типа}{70}
+\contentsline {subsubsection}{Система Никишина}{70}
+\contentsline {subsubsection}{Система Никишина с возмущением $b_k$ диагонали $\displaystyle {\begingroup 1\endgroup \over k^2}$ весом}{72}
+\contentsline {subsubsection}{Система Анжелеско}{73}
+\contentsline {subsubsection}{Система Анжелеско с возмущением $b_k$ диагонали $\displaystyle {\begingroup 1\endgroup \over k^2}$ весом}{75}
+\contentsline {subsection}{\numberline {3.0.24}"Другие" системы $p=2$ }{77}
+\contentsline {chapter}{\numberline {4}Прямая спектральная задача. Вычисления спектральных мер через определители Турана.}{78}
+\contentsline {section}{\numberline {4.1}Системы Стилтьеса $p=2$}{78}
+\contentsline {subsection}{\numberline {4.1.1}Система Стилтьеса $p=2, a_i=1$}{79}
+\contentsline {subsubsection}{Возмущение $a_n=1+\displaystyle {\begingroup 1\endgroup \over 4n^2}$}{81}
+\contentsline {subsubsection}{Возмущение $a_n=1-\displaystyle {\begingroup 1\endgroup \over 4n^2}$}{82}
+\contentsline {subsubsection}{Возмущение $a_n=1 \pm \displaystyle {\begingroup 1\endgroup \over 4n^2}$}{83}
+\contentsline {subsection}{\numberline {4.1.2}Система Стилтьеса $p=2, a_i=2/3$}{84}
+\contentsline {subsection}{\numberline {4.1.3}Система Стилтьеса $p=2, a_i=4/27$}{85}
+\contentsline {section}{\numberline {4.2}Системы Пинейро (разреженный оператор Стилтьеса) $p=2, \Delta =[0,1]$}{86}
+\contentsline {subsubsection}{Возмущение $a_n=\alpha ^2+{\begingroup 1\endgroup \over 4n^2}$}{87}
+\contentsline {subsubsection}{Возмущение $a_n=\alpha ^2+{\begingroup 1\endgroup \over 4n}$}{88}
+\contentsline {subsection}{\numberline {4.2.1}Система Пинейро $\Delta =[0,1], \alpha _0 =0, \alpha _1=0, \alpha _2=1/2$}{88}
+\contentsline {subsection}{\numberline {4.2.2}Система Пинейро $\Delta =[0,1], \alpha _0 =1, \alpha _1=1/2, \alpha _2=1/4$}{89}
+\contentsline {section}{\numberline {4.3}Системы Пинейро (заполненный оператор) $p=2, \Delta =[0,1]$}{90}
+\contentsline {subsubsection}{Возмущение $u_n=3\alpha ^2+{\begingroup 1\endgroup \over 3n}$}{91}
+\contentsline {subsubsection}{Возмущение $u_n=3\alpha ^2+{\begingroup 1\endgroup \over 3n}, v_n=3\alpha ^4+{\begingroup 1\endgroup \over 3n^2}, w_n=\alpha ^6+{\begingroup 1\endgroup \over n^4}$}{92}
+\contentsline {subsubsection}{Возмущение $u_n=3\alpha ^2+{\begingroup 1\endgroup \over 3n^2}$}{92}
+\contentsline {subsubsection}{Возмущение $u_n=3\alpha ^2+{\begingroup 1\endgroup \over 3n^2}, v_n=3\alpha ^4+{\begingroup 1\endgroup \over 3n^4}, w_n=\alpha ^6+{\begingroup 1\endgroup \over n^6}$}{93}
+\contentsline {subsection}{\numberline {4.3.1}Система Пинейро $\Delta =[0,1], \alpha _0 =0, \alpha _1=0, \alpha _2=1/2$}{93}
+\contentsline {subsection}{\numberline {4.3.2}Система Пинейро $\Delta =[0,1], \alpha _0 =1, \alpha _1=1/2, \alpha _2=1/4$}{94}
+\contentsline {section}{\numberline {4.4}Системы Анжелеско $p=2$}{96}
+\contentsline {subsection}{\numberline {4.4.1}Система Анжелеско $p=2, a=-1,\Delta _1=[-1,0], \Delta _2=[0,1]$}{97}
+\contentsline {section}{\numberline {4.5}Системы Никишина $p=2$}{97}
+\contentsline {subsection}{\numberline {4.5.1}Система Никишина $p=2, a=-1,\Delta _1=[-1,0], \Delta _2=[0,1]$}{98}
