@@ -1,11 +1,14 @@
-\documentclass[12pt, a4paper]{report}
-\usepackage[russianb]{babel}
+\documentclass{report}     
+\usepackage{fontspec}
+\usepackage{polyglossia}
 \usepackage{graphics}
-%\usepackage[pdftex]{graphicx}
+
 \parindent 0.5cm
 \textwidth 15.5cm \textheight 24cm \topmargin -1.5cm
-\evensidemargin .5cm \oddsidemargin .5cm \baselineskip=14pt plus
-1pt
+\evensidemargin .5cm \oddsidemargin .5cm \baselineskip=14pt plus 1pt
+
+\setdefaultlanguage{russian}
+\setmainfont[Mapping=tex-text]{CMU Serif}
 
 \newtheorem{prope}{Свойство} [chapter]
 
@@ -20,15 +23,15 @@
 $\mu_1,\mu_2,\ldots,\mu_p$ с бесконечно большим количеством точек
 роста на соответствующих носителях
 $\Delta_j, j=1,...p$. \\
-Введем мульти-индекс $\bf n \rm$ $=(n_1,\ldots,n_p)$ и рассмотрим \it совместно ортогональные многочлены \rm, такие что
+Введем мульти-индекс $\textbf{n}$ $=(n_1,\ldots,n_p)$ и рассмотрим \emph {совместно ортогональные многочлены}, такие что
 $$
-\int Q_{ \bf n \rm } (x) x^{\upsilon} d\mu_k(x) = 0, \hspace{1cm} \upsilon = 0,1,... n_k-1, k = 1, ... p 
+\int Q_{ \textbf {n} } (x) x^{\upsilon} d\mu_k(x) = 0, \hspace{1cm} \upsilon = 0,1,... n_k-1, k = 1, ... p 
 $$
-$$\mbox{deg} Q_{ \bf n \rm} \leq n := \sum\limits_{k=1}^{p} n_k$$
+$$\mbox{deg} Q_{ \textbf {n} } \leq n := \sum\limits_{k=1}^{p} n_k$$
 В общем случае совместно ортогональные многочлены существуют для любого мульти-индекса, но определены неоднозначно. \\
-При \it условии нормальности \rm мульти индекса $\mbox{deg}Q_n=n$ совместно ортогональные многочлены уникальны с точностью до константы. \\
+При \emph {условии нормальности} мульти индекса $\mbox{deg}Q_n=n$ совместно ортогональные многочлены уникальны с точностью до константы. \\
 Пусть для определенности $Q_n$ обозначают многочлены со старшим коэффициентом равным единице. Ограничим множество мульти-индексов условием:
-$$\bf n \rm =(\underbrace{k+1,\ldots,k+1}_{d},\underbrace{k,\ldots,k}_{p-d}),$$ $$k\in{\mbox{Z}}_{+},n=pk+d $$
+$$\textbf {n} =(\underbrace{k+1,\ldots,k+1}_{d},\underbrace{k,\ldots,k}_{p-d}),$$ $$k\in{\mbox{Z}}_{+},n=pk+d $$
 При условии нормальности все таких индексов совместно ортогональные многочлены удовлетворяют следующим реккурентным соотношениям:
 $$
 Q_{-p}=\ldots=Q_{-1}=0, \hspace{1cm} Q_0=1,
@@ -49,7 +52,7 @@ a_{p,0}&a_{p,1}&a_{p,2}&\cdots&a_{p,p+1}&0&\cdots\\
 $$  
 с условиями, что:
 $$a_{n,n-p}\not=0,\ldots,a_{n,n+1}\not=0, \hspace{1cm} a_{i,j}=0, j>i+1,i>j+p $$
-Матрица $A$ задает разностный оператор $A$ в пространстве $l^2 (\sf \bf N \rm)$ \\
+Матрица $A$ задает разностный оператор $A$ в пространстве $l^2 (\sf \textbf {N} )$ \\
 Пусть $\{ e_n \}_{0}^{\infty}$ cтандартный базис в $l^2$.   
 Оператор $A$ определен как
 $$
@@ -58,7 +61,7 @@ $$
 $$
 Ae_k=a_{k-1,k}e_{k-1}+a_{k,k}e_{k}+\ldots+a_{k+p,k}e_{k+p}, \hspace {0.5cm} k\geq 1
 $$
-Функций $(f_1, ... , f_p)$ называются \it резольвентными \rm или \it функциями Вейля \rm оператора $A$ 
+Функций $(f_1, ... , f_p)$ называются \emph {резольвентными}  или \emph {функциями Вейля}  оператора $A$ 
 $$
 f_j(z) := \left(\frac {e_{j-1}} {(zI - A)}, e_0 \right)
 $$
@@ -70,16 +73,16 @@ $$
 $$
 s_k :=(A^k e_{j-1}, e_0)
 $$ 
-называются \it моментами \rm оператора $A$, а множество $\{e_0, \ldots e_{p-1}\}$ - \it циклическим множеством \rm оператора $A$ \\
+называются \emph {моментами}  оператора $A$, а множество $\{e_0, \ldots e_{p-1}\}$ - \emph {циклическим множеством} оператора $A$ \\
 Спектральные свойства оператора $A$ тесно связаны с асимптотическими свойствами совместно ортогональных многочленов. \\
-Резольвентные функции и моменты связаны с борелевскими мерами которые называют в данном контексте \it спектральными мерами \rm оператора:
+Резольвентные функции и моменты связаны с борелевскими мерами которые называют в данном контексте \emph {спектральными мерами}  оператора:
 $$
 f_j(z) = \int _{\Delta_j} \frac{d\mu_j(x)}{z-x}, \hspace{0.5cm} s_n^{(j)}=\int \limits_{\Delta_j} {z^n d\mu_j (z)}
 $$
-\bf Прямая спектральная задача \rm состоит определении элементов матрицы оператора по заданному набору спектральных мер. \\
-\bf Обратная спектральная задача \rm состоит в восстановлении оператора по набору его спектральных мер. \\
+\textbf {Прямая спектральная задача} состоит определении элементов матрицы оператора по заданному набору спектральных мер. \\
+\textbf {Обратная спектральная задача} состоит в восстановлении оператора по набору его спектральных мер. \\
 В общем случае обратная спектральная задача плохо обусловлена. \\
-Цель численных экспериментов в этой главе проверить рассмотреть некоторые стандартные системы мер и проверить утверждение, что \ldots являются \it компактным возмущением \rm некоторого референс-оператора.
+Цель численных экспериментов в этой главе проверить рассмотреть некоторые стандартные системы мер и проверить утверждение, что \ldots являются \textit {компактным возмущением}  некоторого референс-оператора.
 
 \newpage 
 \subsection{Системы Стилтьеса}
@@ -107,7 +110,7 @@ a_0&0&0&\cdots&1&0&\cdots\\
 $$
 S_j(z) = \int \limits_{0}^{\infty} {\displaystyle\frac{d\mu_j(x)}{z-x}}, \hspace{0.5cm} j=1, \ldots p
 $$
-называют \it функциями Стильтеса\rm.
+называют \emph {функциями Стильтеса}.
 \begin{prope}
 При $a_n > 0, n \geq 1$ оператор $L$ ограничен тогда и только тогда, когда общий носитель мер $\mu_j$ является ограниченным множеством
 \end{prope}
@@ -230,9 +233,9 @@ $$
 $$
 d\mu_p(x) :=  \langle \sigma_1, \langle \sigma_2, ..., \sigma_p \rangle \rangle, \hspace{0.5cm} x \in \Delta_1 
 $$
-Система мер $(\mu_1,\mu_2,\ldots,\mu_p)$ называется \it системой Никишина \rm на 
+Система мер $(\mu_1,\mu_2,\ldots,\mu_p)$ называется \emph {системой Никишина}  на 
 $$\sup \mu_j = \Delta_1, \hspace{0.5cm} j=1,\ldots p$$.
-Соответствующие многочлены $Q_n$ для некоторого мульти-индекса $\bf n \rm$ $=(n_1,\ldots,n_p)$ называются \it многочленами Никишина. \rm \\
+Соответствующие многочлены $Q_n$ для некоторого мульти-индекса $\textbf {n} $ $=(n_1,\ldots,n_p)$ называются \emph {многочленами Никишина}.  \\
 Для систем Никишина доакзаны следующие важные свойства.
 \begin{prope}
 Мульти-индексы для $p \leq 3$ строго нормальны, для $p > 3$ это условие пока не доказано.
@@ -248,7 +251,7 @@ $$
 $$
 зависящие, только от расположения интервалов носителей.
 \end{prope}
-Коэффициенты $a_{i,-j}^{0}$ для выбранных носителей при фиксированном $p$ образуют \it референсный оператор. \rm
+Коэффициенты $a_{i,-j}^{0}$ для выбранных носителей при фиксированном $p$ образуют \emph {референсный оператор}. 
 \begin{prope}
 Следствием из (~\ref{Nikishin.Limits}) является то, что любой оператор ассоцированный с некоторой системой Никишина на фиксированных носителях мер при условии, что $\sigma_k^{'} >0$ везде на соответствующем носителе $\Delta_k$ является компактным возмущением референсного оператора. 
 \end{prope}
@@ -621,10 +624,10 @@ $$
 \newpage
 \subsection {Системы Анжелеско}
 Система борелевских мер $\mu_1,\ldots \mu_p$ таких, что носители мер не имеют
-общих внутренних точек ${\Delta_i}\cap{\Delta_j} = 0, i\not=j $ называется \it системой Анжелеско \rm. \\
+общих внутренних точек ${\Delta_i}\cap{\Delta_j} = 0, i\not=j $ называется \emph {системой Анжелеско} . \\
 Для систем Анжелеско доказано несколько важных свойств.
 \begin{prope}
-Все мульти-индексы $\bf n \rm$ $=(n_1,\ldots,n_p)$ строго нормальны.
+Все мульти-индексы $\textbf {n} $ $=(n_1,\ldots,n_p)$ строго нормальны.
 \end{prope}
 \begin{prope}
 Соответствующий разностный оператор ограничен, если носители мер $\Delta_1, \ldots \Delta_p$ компактны.
@@ -745,10 +748,10 @@ $$
 \rho_1(z) = z^2+2, \rho_2(z) = 2-x^3
 $$ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/x^2+2_2-x^3.JPG}} 
+\scalebox{0.5}{\includegraphics{images/X^2+2_2-x^3.JPG}} 
 \end{picture}
 \begin{picture}(100,140)(-80,10)
-\scalebox{0.5}{\includegraphics{images/x^2+2_2-x^3_Chebushev.JPG}} 
+\scalebox{0.5}{\includegraphics{images/x^2+2_2-x^3_Chebushev.jpg}} 
 \end{picture}\\ \\
 
 \chapter {Обратная спектральная задача. Процедура Стильтеса.}
@@ -830,84 +833,84 @@ $$ \\
 Рассмотрим результаты процедуры Стильтеса для различных участков носителей мер Чебышева 1-го и 2-го рода с одной общей точкой - ноль, $a=1, 0.75, 0.5$ \\
 $$ \mbox{Диагональ  } a_{n,n-2}$$\\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Cheb1_Cheb2_a2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Cheb1_Cheb2_a2.jpg}} 
 \end{picture} \\ \\
 $$ \mbox{Диагональ  } a_{n,n-1}$$\\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Cheb1_Cheb2_a1.JPG}} 
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Cheb1_Cheb2_a1.jpg}} 
 \end{picture} \\ \\
 $$ \mbox{Диагональ  } a_{n,n}$$\\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Cheb1_Cheb2_a0.JPG}} 
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Cheb1_Cheb2_a0.jpg}} 
 \end{picture}
 
 \subsection{Процедура Стильтеса для $\Delta_1=[-1,a], \Delta_2=[-a,1]$}
 Рассмотрим результаты процедуры Стильтеса для различных участков носителей мер Чебышева 1-го и 2-го рода, начиная с перекрывающихся носителей мер и заканчивая отдельными носителями для $a=0.5, 0.2, 0.1, 0.05, 0.001, 0, -0.5$ \\
 $$ \mbox{Диагональ  } a_{n,n-2}$$\\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.5_-0.5,1_a2.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.5_-0.5,1_a2.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.2_-0.2,1_a2.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.2_-0.2,1_a2.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.1_-0.1,1_a2.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.1_-0.1,1_a2.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.05_-0.05,1_a2.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.05_-0.05,1_a2.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.01_-0.01,1_a2.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.01_-0.01,1_a2.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0_0,1_a2.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0_0,1_a2.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,-0.5_0.5,1_a2.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,-0.5_0.5,1_a2.jpg}}
 \end{picture} \\ \\
 $$ \mbox{Диагональ  } a_{n,n-1}$$ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.5_-0.5,1_a1.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.5_-0.5,1_a1.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.2_-0.2,1_a1.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.2_-0.2,1_a1.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.1_-0.1,1_a1.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.1_-0.1,1_a1.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.05_-0.05,1_a1.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.05_-0.05,1_a1.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.01_-0.01,1_a1.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.01_-0.01,1_a1.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0_0,1_a1.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0_0,1_a1.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,-0.5_0.5,1_a1.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,-0.5_0.5,1_a1.jpg}}
 \end{picture} \\ \\
 $$ \mbox{Диагональ  } a_{n,n}$$\\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.5_-0.5,1_a0.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.5_-0.5,1_a0.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.2_-0.2,1_a0.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.2_-0.2,1_a0.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.1_-0.1,1_a0.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.1_-0.1,1_a0.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.05_-0.05,1_a0.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.05_-0.05,1_a0.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.01_-0.01,1_a0.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0.01_-0.01,1_a0.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0_0,1_a0.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,0_0,1_a0.jpg}}
 \end{picture} \\ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,-0.5_0.5,1_a0.JPG}}
+\scalebox{0.5}{\includegraphics{images/Stieltjes_Proc_Cheb1_Cheb2_-1,-0.5_0.5,1_a0.jpg}}
 \end{picture} \\ \\
 
 \newpage
@@ -965,10 +968,10 @@ $$
 $$
 $$
 \left(\frac{P_2^{(1)}}{Q_2},\frac{P_2^{(2)}}{Q_2} \right)=\displaystyle\frac{(1/h_0,1)}{(0,z+b_{0,0})} + \displaystyle\frac{(1/h_1,1)|}{(b_{1,0},z+b_{1,1})}=
-\displaystyle\frac{(1/h_0,1)}{(0,z+b_{0,0})+ \displaystyle\frac{(1/h_1,1)}{(b_{1,0},z+b_{1,1})}}}=
+\displaystyle\frac{(1/h_0,1)}{(0,z+b_{0,0})+ \displaystyle\frac{(1/h_1,1)}{(b_{1,0},z+b_{1,1})}}=
 $$
 $$
-\displaystyle\frac{(1/h_0,1)}{(0,z+b_{0,0}) +  \left(\displaystyle\frac{1}{h_1(z+b_{1,1})},\displastyle\frac{b_{1,0}}{z+b_{1,1}}\right) }=
+\displaystyle\frac{(1/h_0,1)}{(0,z+b_{0,0}) +  \left(\displaystyle\frac{1}{h_1(z+b_{1,1})},\frac{b_{1,0}}{z+b_{1,1}}\right)}=
 \displaystyle\frac{(1/h_0,1)}
 {\left(\displaystyle\frac{1}{h_1(z+b_{0,0})} , \displaystyle\frac{(z+b_{0,0})(z+b_{1,1})+b_{1,0}}{z+b_{1,1}}\right) }=
 $$
@@ -1118,10 +1121,10 @@ $$
 \rho_1(z) = z^2+2, \rho_2(z) = 2-x^3
 $$
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/x^2+2_2-x^3.JPG}} 
+\scalebox{0.5}{\includegraphics{images/X^2+2_2-x^3.JPG}} 
 \end{picture}
 \begin{picture}(100,140)(-80,10)
-\scalebox{0.5}{\includegraphics{images/x^2+2_2-x^3_Angelesco.JPG}} 
+\scalebox{0.5}{\includegraphics{images/x^2+2_2-x^3_Angelesco.jpg}} 
 \end{picture}\\ \\
 
 \newpage
@@ -1229,7 +1232,7 @@ $$
 \rho_1(z) = z^2+2, \rho_2(z) = 2-z^3
 $$ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/x^2+2_2-x^3.JPG}} 
+\scalebox{0.5}{\includegraphics{images/X^2+2_2-x^3.JPG}} 
 \end{picture}
 \begin{picture}(100,140)(-80,10)
 \scalebox{0.5}{\includegraphics{images/Angelesco_-0.5_x^2+2_2-x^3.JPG}} 
@@ -1348,7 +1351,7 @@ $$
 \rho_1(z) = z^2+2, \rho_2(z) = 2-z^3
 $$ \\
 \begin{picture}(100,140)(10,10)
-\scalebox{0.5}{\includegraphics{images/x^2+2_2-x^3.JPG}} 
+\scalebox{0.5}{\includegraphics{images/X^2+2_2-x^3.JPG}} 
 \end{picture}
 \begin{picture}(100,140)(-80,10)
 \scalebox{0.5}{\includegraphics{images/Angelesco_-0.75_x^2+2_2-x^3.JPG}} 
@@ -1369,8 +1372,8 @@ $$ \\
 $$
 d\mu_j(x)=x^{\alpha_0}(1-x)^{\alpha_j}dx, j=1,\ldots,p
 $$
-где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \bf Z \rm$
-называется \it системой Пинейро \rm. \\
+где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \textbf {Z} $
+называется \emph {системой Пинейро}. \\
 
 
 \newpage
@@ -1382,7 +1385,7 @@ d\mu_1(x)=x^{\alpha_0}(1-x)^{\alpha_1}dx \\
 d\mu_2(x)=x^{\alpha_0}(1-x)^{\alpha_2}dx
 \end{array}
 $$
-где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \bf Z \rm$ \\
+где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \textbf {Z} $ \\
 Референсный оператор имеет следующую структуру
 $$
 A^0_{Pin}=
@@ -1582,7 +1585,7 @@ $$ \\
 \end{picture} \\ \\
 
 \chapter {Решение систем на базе матрицы Хессенберга. Метод модифицированных моментов.}
-Рассмотрим \it матрицу Хессенберга \rm
+Рассмотрим \emph {матрицу Хессенберга}
 \begin{equation}
 \label{Hessenberg}
 L=
@@ -1606,7 +1609,7 @@ f_4 & e_4 & d_4 & c_4 & \ldots
 
 
 \subsection {Система Богоявленского}
-При $m=1, b_j = c_j = 0$ уравнение (~\ref{Lequation}) описывает \it систему Богоявленского.\rm
+При $m=1, b_j = c_j = 0$ уравнение (~\ref{Lequation}) описывает \emph {систему Богоявленского}.
 $$
 \dot{d_n}=d_n(d_{n+1}+d_{n+2}-d_{n-1}-d_{n-2})
 $$
@@ -1649,7 +1652,7 @@ d_2 & c_2 & b_2 & 1 &  \cdots \\
 \end{array}\right)
 \end{equation}
 
-При $m=0$ уравнение $\dot{L}=[(L)_{-},L]=(L)_{-}L-L(L)_{-}$ описывает \it векторную систему Тода I-го типа\rm. 
+При $m=0$ уравнение $\dot{L}=[(L)_{-},L]=(L)_{-}L-L(L)_{-}$ описывает \emph {векторную систему Тода I-го типа}. 
 $$
 \begin{array}{lllllllllllllll}
 \dot{b_n} = c_{n} - c_{n+1} \\
@@ -1706,7 +1709,7 @@ $$
 \end{picture} \\ \\
 Для $c_k$ диагонали \\
 \begin{picture}(100,190)(10,10)
-\scalebox{0.6}{\includegraphics{images/Toda1.Nikishin+1_k^2.C.JPG}} 
+\scalebox{0.6}{\includegraphics{images/Toda1.Nikishin+1_k^2.C.jpg}} 
 \end{picture} \\ \\
 Для $d_k$ диагонали \\
 \begin{picture}(100,190)(10,10)
@@ -1769,7 +1772,7 @@ $$
 
 \subsection {Векторная система Тода II-го типа}
 
-При $m=1$ уравнение $\dot{L}=[(L^2)_{-},L] = (L^2)_{-}L-L(L^2)_{-}$ описывает \it систему Тода II-го типа\rm. 
+При $m=1$ уравнение $\dot{L}=[(L^2)_{-},L] = (L^2)_{-}L-L(L^2)_{-}$ описывает \emph {систему Тода II-го типа}. 
 $$
 \begin{array}{lllllllllllllll}
 \dot{b_n} = b_n(c_{n} - c_{n+1}) + b_{n-1}c_n - b_{n+1}c_{n+1} + d_n - d_{n+2} \\
@@ -1827,7 +1830,7 @@ $$
 \end{picture} \\ \\
 Для $c_k$ диагонали \\ 
 \begin{picture}(100,190)(10,10)
-\scalebox{0.6}{\includegraphics{images/Toda2.Nikishin+1_k^2.C.JPG}} 
+\scalebox{0.6}{\includegraphics{images/Toda2.Nikishin+1_k^2.C.jpg}} 
 \end{picture} \\ \\
 Для $d_k$ диагонали \\
 \begin{picture}(100,190)(10,10)
@@ -1922,7 +1925,7 @@ a_1 & 0 & 0 & 1 & \cdots \\
 \cdots & \cdots & \cdots & \cdots & \cdots 
 \end{array}\right)
 \end{equation}
-Резольвентные функции $(S_1,S_2)$ оператора $L$ называются \it функциями Стилтъеса \rm 
+Резольвентные функции $(S_1,S_2)$ оператора $L$ называются \emph {функциями Стилтъеса} 
 %~\cite{AptKaliaIzegh}. 
 $$
 S_1(z) = \int\limits_{0}^{\infty} \frac{d\mu_1(x)}{z-x}, \hspace{1 cm} 
@@ -2039,19 +2042,19 @@ w^3-zw^2+1=0 \\
 
 Следующий график показывает весовые функции $\rho_1^T(x), \rho_2^T(x)$ вычисленные через определители Турана (степень многочленов $n=50$):\\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan.jpg}} 
 \end{picture} \\ 
 Весовые функции, вычисленные через корни алгебраической функции:\\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes.jpg}} 
 \end{picture} \\
 Погрешность вычислений весовых функций через определители Турана и через корни алгебраической функции выглядит как:\\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan-error.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan-error.jpg}} 
 \end{picture} \\ 
 Погрешность вычислений весовой функций $\rho_1(x)$ в зависимости от степени определителей Турана $n$ \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan-1n-error.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan-1n-error.jpg}} 
 \end{picture} \\ \\ \\
 Рассмотрим возмущения исходного оператора
 %%
@@ -2072,31 +2075,31 @@ d\mu_2^{'}(x)=\rho_2^{'}(x)dx$
 \subsubsection{Возмущение $a_n=1+\displaystyle\frac{1}{4n^2}$}
 Весовая функция $\rho_1^{'}(x)$ для возмущения $a_n=1+\displaystyle\frac{1}{4n^2}$ выглядит следующим образом относительно референсной $\rho_1(x)$ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan-1+4n2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan-1+4n2.jpg}} 
 \end{picture} \\
 соответствующая весовая функции $\rho_2^{'}(x)$\\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan-2+4n2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan-2+4n2.jpg}} 
 \end{picture}
 
 \subsubsection{Возмущение $a_n=1-\displaystyle\frac{1}{4n^2}$}
 Весовая функция $\rho_1(x)^{'}$ для возмущения $a_n=1-\displaystyle\frac{1}{4n^2}$ выглядит следующим обрахзом:\\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan-1-4n2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan-1-4n2.jpg}} 
 \end{picture} \\
 соответствующая весовая функции $\rho_2^{'}(x)$\\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan-2-4n2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan-2-4n2.jpg}} 
 \end{picture} 
 
 \subsubsection{Возмущение $a_n=1 \pm \displaystyle\frac{1}{4n^2}$}
 Весовая функция $\rho_1^{'}(x)$\\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan-1-+4n2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan-1-+4n2.jpg}} 
 \end{picture} \\
 весовая функция $\rho_2^{'}(x)$ \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan-2-+4n2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan-2-+4n2.jpg}} 
 \end{picture}
 
 \subsection{Система Стилтьеса $p=2, a_i=2/3$}
@@ -2116,7 +2119,7 @@ F(w,z)=w^3-zw^2+2/3
 $$
 Следующий график показывает соответствующие весовые функции (для степени многочленов $n=50$) \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan_2_3.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan_2_3.jpg}} 
 \end{picture} \\
 
 
@@ -2138,7 +2141,7 @@ F(w,z)=w^3-zw^2+4/27
 $$
 Следующий график показывает соответствующие весовые функции (для степени многочленов $n=50$) \\ \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/stieltjes-turan_4_27.JPG}} 
+\scalebox{0.5}{\includegraphics{images/stieltjes-turan_4_27.jpg}} 
 \end{picture} \\
 
 
@@ -2154,12 +2157,12 @@ d\mu_1(x)=\rho_1(x) dx = x^{\alpha_1}(1-x)^{\alpha_0} dx \\
 d\mu_2(x)=\rho_2(x) dx = x^{\alpha_2}(1-x)^{\alpha_0} dx
 \end{array}
 $$
-где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \bf Z\rm$, для которой  
+где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \textbf {Z}$, для которой  
 $$
 \rho_1(x), \rho_2(x), x\rho_1(x), x\rho_2(x), \ldots, x^n\rho_1(x), \ldots
 $$
 образуют систему Марковских функций. \\
-Такая система называется \it системой Пинейро \rm размерности $p=2$ \\
+Такая система называется \emph {системой Пинейро}  размерности $p=2$ \\
 Резольвентные функции имеют вид:
 $$
 S_1(z)=\int_{\Delta} {\displaystyle \frac{d\mu_1(x)}{x-z}}, S_2(z)=\int_{\Delta} {\displaystyle \frac{d\mu_2(x)}{x-z}}
@@ -2230,19 +2233,19 @@ F(w,z)=w^3-zw^2+\alpha^2
 $$
 Следующий график показывает меры вычисленные для референсного разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_limit.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_limit.jpg}} 
 \end{picture} \\
 
 \subsubsection{Возмущение $a_n=\alpha^2+\frac{1}{4n^2}$}
 Следующий график показывает меры вычисленные для референсного разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_limit_4n2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_limit_4n2.jpg}} 
 \end{picture} \\
 
 \subsubsection{Возмущение $a_n=\alpha^2+\frac{1}{4n}$}
 Следующий график показывает меры вычисленные для референсного разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_limit_4n.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_limit_4n.jpg}} 
 \end{picture} \\
 
 \subsection{Система Пинейро $\Delta=[0,1], \alpha_0 =0, \alpha_1=0, \alpha_2=1/2$}
@@ -2273,7 +2276,7 @@ F(w,z)=w^3-zw^2+4/27
 $$
 Следующий график показывает меры вычисленные для разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_0_0_1_2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_0_0_1_2.jpg}} 
 \end{picture} \\
 
 
@@ -2303,7 +2306,7 @@ F(w,z)=w^3-zw^2+4/27
 $$
 Следующий график показывает меры вычисленные для разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_1_1_2_1_4.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_1_1_2_1_4.jpg}} 
 \end{picture} \\
 
 
@@ -2319,7 +2322,7 @@ d\mu_1(x)=\rho_1(x) dx = x^{\alpha_1}(1-x)^{\alpha_0} dx \\
 d\mu_2(x)=\rho_2(x) dx = x^{\alpha_2}(1-x)^{\alpha_0} dx
 \end{array}
 $$
-где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \bf Z\rm$, 
+где $\alpha_j>-1, \alpha_i-\alpha_j \not \in \textbf {Z}$, 
 Cоответствующий заполненный оператор имеет вид
 \begin{equation}
 P = \left(\begin{array}{ccccccc}
@@ -2375,31 +2378,31 @@ w^3-(x-3a^2)w^2+3a^4w+a^6=0 \\
 \end{equation}
 Следующий график показывает меры вычисленные для референсного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit.jpg}} 
 \end{picture} \\
 
 \subsubsection{Возмущение $u_n=3\alpha^2+\frac{1}{3n}$}
 Следующий график показывает меры вычисленные для референсного разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit_3n.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit_3n.jpg}} 
 \end{picture} \\
 
 \subsubsection{Возмущение $u_n=3\alpha^2+\frac{1}{3n}, v_n=3\alpha^4+\frac{1}{3n^2}, w_n=\alpha^6+\frac{1}{n^4}$}
 Следующий график показывает меры вычисленные для референсного разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit_3n_3n2_n4.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit_3n_3n2_n4.jpg}} 
 \end{picture} \\
 
 \subsubsection{Возмущение $u_n=3\alpha^2+\frac{1}{3n^2}$}
 Следующий график показывает меры вычисленные для референсного разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit_3n2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit_3n2.jpg}} 
 \end{picture} \\
 
 \subsubsection{Возмущение $u_n=3\alpha^2+\frac{1}{3n^2}, v_n=3\alpha^4+\frac{1}{3n^4}, w_n=\alpha^6+\frac{1}{n^6}$}
 Следующий график показывает меры вычисленные для референсного разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit_3n2_3n4_n6.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_limit_3n2_3n4_n6.jpg}} 
 \end{picture} \\
 
 
@@ -2424,7 +2427,7 @@ F(w,z)=w^3-(x-3 a^2)w^2+3 a^4 w+a^6=(w+a^2)^3-zw
 $$
 Следующий график показывает меры вычисленные для заполненного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_0_0_1_2.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_0_0_1_2.jpg}} 
 \end{picture} \\
 
 \subsection{Система Пинейро $\Delta=[0,1], \alpha_0 =1, \alpha_1=1/2, \alpha_2=1/4$}
@@ -2438,7 +2441,7 @@ F(w,z)=w^3-(x-3 a^2)w^2+3 a^4 w+a^6=(w+a^2)^3-zw
 $$
 Следующий график показывает меры вычисленные для разреженного оператора Пинейро через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(40,0)
-\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_1_1_2_1_4.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_pineiro_nikishin_1_1_2_1_4.jpg}} 
 \end{picture} \\
 
 \newpage
@@ -2514,7 +2517,7 @@ F(w,z)=w^3-\left(z+\displaystyle \frac{2}{3}\sqrt{3}\right)w^2 + \left( \display
 $$
 Следующий график показывает меры вычисленные для референсного оператора системы Анжелеско для носителей $[-1,0]$, $[0,1]$ через определители Турана (многочлены степени $n=50$) \\ \\ \\ \\
 \begin{picture}(100,190)(60,0)
-\scalebox{0.5}{\includegraphics{images/turan_anglesco_limit_1.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_anglesco_limit_1.jpg}} 
 \end{picture} \\
 
 
@@ -2589,7 +2592,7 @@ F(w,z)=w^3-\left(\displaystyle\frac{27}{2}z-\displaystyle\frac{9}{4}\sqrt{3}\rig
 $$
 Следующий график показывает меры вычисленные для референсного оператора системы Анжелеско для носителей $[-1,0]$, $[0,1]$ через определители Турана (многочлены степени $n=50$) \\ \\ \\
 \begin{picture}(100,190)(60,0)
-\scalebox{0.5}{\includegraphics{images/turan_nikishin_limit_1.JPG}} 
+\scalebox{0.5}{\includegraphics{images/turan_nikishin_limit_1.jpg}} 
 \end{picture} \\
 
 
